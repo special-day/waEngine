@@ -7,6 +7,8 @@
 
 #define MAX_LOADSTRING 100
 
+ya::Application application;
+
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
@@ -68,7 +70,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,         // 프로그램의 인�
         }
         else
         {
-            int a = 0;
+            
+            application.Run();
+
             // 메세지가 없을 경우 여기서 처리
             // 게임 로직이 들어가면 된다.
         }
@@ -132,6 +136,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   application.Initialize(hWnd);
+
    if (!hWnd)
    {
       return FALSE;
@@ -179,41 +185,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             
-            // 파랑 브러쉬 생성
-            HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
-            
-            // 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환
-            HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
-
-            Rectangle(hdc, 100, 100, 200, 200);
-
-            // 다시 흰색 원본 브러쉬로 선택
-            SelectObject(hdc, oldBrush);
-
-            // 파랑 브러쉬 삭제
-            DeleteObject(brush);
-
-            HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-            HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-
-            Ellipse(hdc, 200, 200, 300, 300);
-
-            SelectObject(hdc, oldPen);
-            DeleteObject(redPen);
-
-            // 기본으로 자주 사용되는 GDI 오브젝트를 미리 DC 안에 만들어 두었는데
-            // 그 오브젝트들을 스톡 오브젝트라고 한다.
-
-            HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-            oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
-            Rectangle(hdc, 400, 400, 500, 500);
-            SelectObject(hdc, oldBrush);
-
-            // DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체이며
-            // GDI 모듈에 의해서 관리된다.
-            // 어떤 폰트를 사용할 것인가? 어떤 선의 굵기를 정해줄 것인지? 어떤 색상으로 그려줄 것인지?
-            // 화면 출력에 필요한 모든 경우는 WINAPI에서는 DC를 통해서 작업을 진행할 수 있다.
-
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
             EndPaint(hWnd, &ps);
         }
