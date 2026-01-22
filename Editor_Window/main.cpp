@@ -3,7 +3,7 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
-#include "..\\YamYamEngine_SOURCE\\waApplication.h"
+#include "..\\waEngine_SOURCE\\waApplication.h"
 
 #define MAX_LOADSTRING 100
 

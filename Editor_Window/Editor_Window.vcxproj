@@ -56,7 +56,8 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-    <Import Project="..\YamYamEngine_SOURCE\YamYamEngine_SOURCE.vcxitems" Label="Shared" />
+    <Import Project="..\waEngine_SOURCE\waEngine_SOURCE.vcxitems" Label="Shared" />
+    <Import Project="..\waEngine_SOURCE\waEngine_SOURCE.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />

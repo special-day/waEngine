@@ -5,9 +5,9 @@ VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_Window", "Editor_Window\Editor_Window.vcxproj", "{FCA0FDE3-C0F1-435C-B54B-358E08F98905}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YamYamEngine_Window", "YamYamEngine_Window\YamYamEngine_Window.vcxproj", "{BBC9CA7B-1D6D-4674-95CD-569F45129153}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "waEngine_SOURCE", "waEngine_SOURCE\waEngine_SOURCE.vcxitems", "{D825C8BB-1C44-45E5-AB68-152C89143D28}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YamYamEngine_SOURCE", "YamYamEngine_SOURCE\YamYamEngine_SOURCE.vcxitems", "{D825C8BB-1C44-45E5-AB68-152C89143D28}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "waEngine_Window", "waEngine_Window\waEngine_Window.vcxproj", "{BBC9CA7B-1D6D-4674-95CD-569F45129153}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,8 +41,8 @@ Global
 		SolutionGuid = {7884E10D-62F0-407C-BC81-8FA4BA183C7D}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		YamYamEngine_SOURCE\YamYamEngine_SOURCE.vcxitems*{bbc9ca7b-1d6d-4674-95cd-569f45129153}*SharedItemsImports = 4
-		YamYamEngine_SOURCE\YamYamEngine_SOURCE.vcxitems*{d825c8bb-1c44-45e5-ab68-152c89143d28}*SharedItemsImports = 9
-		YamYamEngine_SOURCE\YamYamEngine_SOURCE.vcxitems*{fca0fde3-c0f1-435c-b54b-358e08f98905}*SharedItemsImports = 4
+		waEngine_SOURCE\waEngine_SOURCE.vcxitems*{bbc9ca7b-1d6d-4674-95cd-569f45129153}*SharedItemsImports = 4
+		waEngine_SOURCE\waEngine_SOURCE.vcxitems*{d825c8bb-1c44-45e5-ab68-152c89143d28}*SharedItemsImports = 9
+		waEngine_SOURCE\waEngine_SOURCE.vcxitems*{fca0fde3-c0f1-435c-b54b-358e08f98905}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
