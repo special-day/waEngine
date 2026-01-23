@@ -18,9 +18,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waGameObject2.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)waApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waGameObject2.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waInput.cpp" />
   </ItemGroup>
 </Project>

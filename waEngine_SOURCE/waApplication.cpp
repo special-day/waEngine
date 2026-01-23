@@ -1,5 +1,5 @@
 #include "waApplication.h"
-#include "waGameObject.h"
+#include "waInput.h"
 
 ya::Application::Application()
     : mHwnd(nullptr)
@@ -17,6 +17,9 @@ void ya::Application::Initialize(HWND hwnd)
 	mHdc = GetDC(hwnd);
 
     mPlayer.SetPosition(0, 0);
+   //  mObj.SetPosition(0, 0);
+
+    Input::Initialize();
 }
 
 void ya::Application::Run()
@@ -28,7 +31,9 @@ void ya::Application::Run()
 
 void ya::Application::Update()
 {
+    Input::Update();
     mPlayer.Update();
+    // mObj.Update();
 }
 
 void ya::Application::LateUpdate()
@@ -38,6 +43,7 @@ void ya::Application::LateUpdate()
 void ya::Application::Render()
 {
     mPlayer.Render(mHdc);
+    // mObj.Render(mHdc);
 
     // 기본으로 자주 사용되는 GDI 오브젝트를 미리 DC 안에 만들어 두었는데
     // 그 오브젝트들을 스톡 오브젝트라고 한다.

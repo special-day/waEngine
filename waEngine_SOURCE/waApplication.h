@@ -1,5 +1,6 @@
 #pragma once
 #include "waGameObject.h"
+#include "waGameObject2.h"
 
 namespace ya
 {
@@ -25,7 +26,8 @@ namespace ya
 		// float mX;
 		// float mY;
 
-		GameObject mPlayer;
+		GameObject  mPlayer;
+		GameObject2 mObj;
 	};
 }
 
