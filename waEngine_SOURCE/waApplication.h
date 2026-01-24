@@ -10,7 +10,7 @@ namespace ya
 		Application();
 		~Application();
 
-		void Initialize(HWND hwnd);
+		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
 
 		void Update();
@@ -22,9 +22,11 @@ namespace ya
 		HWND mHwnd;
 		HDC  mHdc;
 
-		// 플레이어
-		// float mX;
-		// float mY;
+		HDC mBackHdc;
+		HBITMAP mBackBitmap;
+
+		UINT mWidth;
+		UINT mHeight;
 
 		GameObject  mPlayer;
 		GameObject2 mObj;

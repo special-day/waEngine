@@ -1,5 +1,6 @@
 #include "waGameObject.h"
 #include "waInput.h"
+#include "waTime.h"
 
 ya::GameObject::GameObject()
 {
@@ -11,24 +12,25 @@ ya::GameObject::~GameObject()
 
 void ya::GameObject::Update()
 {
+    const int speed = 100.0f;
     if (Input::GetKey(eKeyCode::A))
     {
-        mX -= 0.01f;
+        mX -= speed * Time::DT();
     }
 
     if (Input::GetKey(eKeyCode::D))
     {
-        mX += 0.01f;
+        mX += speed * Time::DT();
     }
     
-    if (Input::GetKey(eKeyCode::Up))
+    if (Input::GetKey(eKeyCode::W))
     {
-        mY -= 0.01f;
+        mY -= speed * Time::DT();
     }
 
-    if (Input::GetKey(eKeyCode::Down))
+    if (Input::GetKey(eKeyCode::S))
     {
-        mY += 0.01f;
+        mY += speed * Time::DT();
     }
 
 }

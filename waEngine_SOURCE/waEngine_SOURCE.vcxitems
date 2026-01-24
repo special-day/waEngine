@@ -20,11 +20,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waGameObject2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)waApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waGameObject2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waTime.cpp" />
   </ItemGroup>
 </Project>
