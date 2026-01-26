@@ -141,6 +141,11 @@
     <Image Include="Editor_Window.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\waEngine_Window\waEngine_Window.vcxproj">
+      <Project>{bbc9ca7b-1d6d-4674-95cd-569f45129153}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

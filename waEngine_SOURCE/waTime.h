@@ -1,7 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 
-namespace ya
+namespace wa
 {
 	class Time
 	{

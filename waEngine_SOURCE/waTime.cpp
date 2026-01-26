@@ -1,6 +1,6 @@
 #include "waTime.h"
 
-namespace ya
+namespace wa
 {
 	LARGE_INTEGER Time::CpuFrequency = {};
 	LARGE_INTEGER Time::PrevFrequency = {};

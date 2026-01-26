@@ -4,10 +4,11 @@
 #include "framework.h"
 #include "Editor_Window.h"
 #include "..\\waEngine_SOURCE\\waApplication.h"
+#include "..\\waEngine_Window\\waLoadScenes.h"
 
 #define MAX_LOADSTRING 100
 
-ya::Application application;
+wa::Application application;
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
@@ -148,6 +149,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   // load Scenes
+   wa::LoadScenes();
 
    return TRUE;
 }

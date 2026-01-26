@@ -2,7 +2,7 @@
 #include "waGameObject.h"
 #include "waGameObject2.h"
 
-namespace ya
+namespace wa
 {
 	class Application
 	{
@@ -15,8 +15,15 @@ namespace ya
 
 		void Update();
 		void LateUpdate();
-
 		void Render();
+
+	private:
+		void clearRenderTarget();
+		void copyRenderTarget(HDC source, HDC dest);
+		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void initializeEtc();
+
 
 	private:
 		HWND mHwnd;
@@ -28,8 +35,8 @@ namespace ya
 		UINT mWidth;
 		UINT mHeight;
 
-		GameObject  mPlayer;
-		GameObject2 mObj;
+		// std::vector<Scene*> mScenes;
+		std::vector<GameObject*> mGameObjects;
 	};
 }
 

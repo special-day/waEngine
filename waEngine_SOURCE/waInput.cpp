@@ -1,6 +1,6 @@
 #include "waInput.h"
 
-namespace ya
+namespace wa
 {
 	std::vector<Input::Key> Input::Keys = {};
 

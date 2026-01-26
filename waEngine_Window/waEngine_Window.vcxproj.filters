@@ -1,2 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{688ce21e-549c-42e3-8b91-59f6332b17c0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="waLoadScenes.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="waPlayScene.h" />
+    <ClInclude Include="waEndScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="waPlayScene.cpp" />
+    <ClCompile Include="waEndScene.cpp" />
+  </ItemGroup>
+</Project>

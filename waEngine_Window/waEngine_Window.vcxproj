@@ -18,6 +18,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="waEndScene.h" />
+    <ClInclude Include="waLoadScenes.h" />
+    <ClInclude Include="waPlayScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="waEndScene.cpp" />
+    <ClCompile Include="waPlayScene.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

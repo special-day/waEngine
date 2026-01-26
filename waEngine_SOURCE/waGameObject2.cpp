@@ -1,15 +1,15 @@
 #include "waGameObject2.h"
 
-ya::GameObject2::GameObject2()
+wa::GameObject2::GameObject2()
 {
 
 }
 
-ya::GameObject2::~GameObject2()
+wa::GameObject2::~GameObject2()
 {
 }
 
-void ya::GameObject2::Update()
+void wa::GameObject2::Update()
 {
 	if (GetAsyncKeyState(VK_UP) & 0x8000)
 	{
@@ -33,12 +33,12 @@ void ya::GameObject2::Update()
 
 }
 
-void ya::GameObject2::LateUpdate()
+void wa::GameObject2::LateUpdate()
 {
 
 }
 
-void ya::GameObject2::Render(HDC hdc)
+void wa::GameObject2::Render(HDC hdc)
 {
 
 	HBRUSH greenBrush = CreateSolidBrush(RGB(0, 255, 0));
