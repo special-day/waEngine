@@ -1,5 +1,8 @@
 #include "waPlayScene.h"
 #include "waGameObject.h"
+#include "waTransform.h"
+#include "waSpriteRenderer.h"
+#include "waPlayer.h"
 
 namespace wa
 {
@@ -11,12 +14,19 @@ namespace wa
 	}
 	void PlayScene::Initialize()
 	{
-		for (size_t i = 0; i < 100; i++)
 		{
-			GameObject* obj = new GameObject();
-			obj->SetPosition(rand() % 1600, rand() % 900);
-			AddGameObject(obj);
+			Player* p1 = new Player();
+			Transform* tr = p1->AddComponent<Transform>();
+			tr->SetPos(200.0f, 300.0f);
+
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr = p1->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			AddGameObject(p1);
 		}
+
 	}
 	void PlayScene::Update()
 	{

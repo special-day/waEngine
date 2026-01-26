@@ -11,6 +11,6 @@ namespace wa
 		SceneManager::CreateScene<EndScene>(L"EndScene");
 		// SceneManager::CreateScene<TitleScene>(L"TitleScene");
 
-		SceneManager::LoadScene(L"EndScene");
+		SceneManager::LoadScene(L"PlayScene");
 	}
 }

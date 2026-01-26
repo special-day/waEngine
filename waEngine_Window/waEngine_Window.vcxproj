@@ -21,10 +21,12 @@
   <ItemGroup>
     <ClInclude Include="waEndScene.h" />
     <ClInclude Include="waLoadScenes.h" />
+    <ClInclude Include="waPlayer.h" />
     <ClInclude Include="waPlayScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="waEndScene.cpp" />
+    <ClCompile Include="waPlayer.cpp" />
     <ClCompile Include="waPlayScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

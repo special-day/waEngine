@@ -4,16 +4,33 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{688ce21e-549c-42e3-8b91-59f6332b17c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{3689ffe5-55a4-4c28-ad8c-82337e4afb6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="waLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="waPlayScene.h" />
-    <ClInclude Include="waEndScene.h" />
+    <ClInclude Include="waEndScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="waPlayScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="waPlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="waPlayScene.cpp" />
-    <ClCompile Include="waEndScene.cpp" />
+    <ClCompile Include="waEndScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="waPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="waPlayer.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
