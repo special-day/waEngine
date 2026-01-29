@@ -5,6 +5,9 @@
 namespace wa
 {
 	SpriteRenderer::SpriteRenderer()
+		: mImage(nullptr)
+		, mWidth(0)
+		, mHeight(0)
 	{
 	}
 	SpriteRenderer::~SpriteRenderer()
@@ -21,24 +24,16 @@ namespace wa
 	}
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		// 파랑 브러쉬 생성
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
-
-		// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-
 		Transform* tr = GetOwner()->GetComponent<Transform>();
-		Ellipse(hdc, tr->GetX(), tr->GetY()
-			, 100 + tr->GetX(), 100 + tr->GetY());
+		Vector2 pos = tr->GetPos();
 
-		// 파랑 브러쉬 삭제
-		DeleteObject(blueBrush);
-
-		SelectObject(hdc, oldBrush);
-		SelectObject(hdc, oldPen);
-		DeleteObject(redPen);
+		Gdiplus::Graphics graphics(hdc);
+		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+	}
+	void SpriteRenderer::ImageLoad(const std::wstring& path)
+	{
+		mImage = Gdiplus::Image::FromFile(path.c_str());
+		mWidth = mImage->GetWidth();
+		mHeight = mImage->GetHeight();
 	}
 }

@@ -21,6 +21,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waGameObject2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waTime.h" />
@@ -34,6 +36,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waGameObject2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waTime.cpp" />

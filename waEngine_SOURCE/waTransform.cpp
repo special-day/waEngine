@@ -5,8 +5,7 @@
 namespace wa
 {
 	Transform::Transform()
-		: mX(0)
-		, mY(0)
+		: mPosition(0.0f, 0.0f)
 	{
 	}
 	Transform::~Transform()
@@ -20,22 +19,22 @@ namespace wa
 		const float speed = 100.0f;
         if (Input::GetKey(eKeyCode::A))
         {
-            mX -= speed * Time::DT();
+            mPosition.x -= speed * Time::DT();
         }
 
         if (Input::GetKey(eKeyCode::D))
         {
-            mX += speed * Time::DT();
+			mPosition.x += speed * Time::DT();
         }
 
         if (Input::GetKey(eKeyCode::W))
         {
-            mY -= speed * Time::DT();
+			mPosition.y -= speed * Time::DT();
         }
 
         if (Input::GetKey(eKeyCode::S))
         {
-            mY += speed * Time::DT();
+			mPosition.y += speed * Time::DT();
         }
 	}
 	void Transform::LateUpdate()

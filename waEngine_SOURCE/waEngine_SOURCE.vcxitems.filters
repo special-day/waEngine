@@ -32,6 +32,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waSpriteRenderer.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waResource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)waApplication.h" />
@@ -68,6 +72,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waSpriteRenderer.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waResource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

@@ -1,8 +1,11 @@
 #pragma once
+
+#include "waEntity.h"
 #include "waComponent.h"
 
 namespace wa
 {
+	using namespace math;
 	class Transform : public Component
 	{
 	public:
@@ -14,13 +17,11 @@ namespace wa
 		virtual void LateUpdate() override;
 		virtual void Render(HDC hdc) override;
 
-		void SetPos(float x, float y) { mX = x; mY = y; }
-		float GetX() { return mX; }
-		float GetY() { return mY; }
+		void SetPos(Vector2 pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
+		Vector2 GetPos() { return mPosition; }
 
 	private:
-		float mX;
-		float mY;
+		Vector2 mPosition;
 
 	};
 }

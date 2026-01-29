@@ -15,16 +15,17 @@ namespace wa
 	void PlayScene::Initialize()
 	{
 		{
-			Player* p1 = new Player();
-			Transform* tr = p1->AddComponent<Transform>();
-			tr->SetPos(200.0f, 300.0f);
+			Player* bg = new Player();
+			Transform* tr = bg->AddComponent<Transform>();
+			tr->SetPos(Vector2(0, 0));
 
 			tr->SetName(L"TR");
 
-			SpriteRenderer* sr = p1->AddComponent<SpriteRenderer>();
+			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
+			sr->ImageLoad(L"C:\\wa\\waEngine\\Resources\\simple.png");
 
-			AddGameObject(p1);
+			AddGameObject(bg);
 		}
 
 	}
