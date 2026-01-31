@@ -23,11 +23,13 @@
     <ClInclude Include="waLoadScenes.h" />
     <ClInclude Include="waPlayer.h" />
     <ClInclude Include="waPlayScene.h" />
+    <ClInclude Include="waTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="waEndScene.cpp" />
     <ClCompile Include="waPlayer.cpp" />
     <ClCompile Include="waPlayScene.cpp" />
+    <ClCompile Include="waTitleScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

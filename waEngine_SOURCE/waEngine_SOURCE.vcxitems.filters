@@ -36,6 +36,7 @@
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)waResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)waApplication.h" />
@@ -76,6 +77,10 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)waResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waEnum.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -92,6 +97,9 @@
     </Filter>
     <Filter Include="Helpers">
       <UniqueIdentifier>{618c460e-98ed-499d-8a0f-da30e8c8f7c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{29afe9d6-f1b8-4760-ae87-3cf4ff1d25ad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -3,6 +3,9 @@
 #include "waTransform.h"
 #include "waSpriteRenderer.h"
 #include "waPlayer.h"
+#include "waInput.h"
+#include "waTitleScene.h"
+#include "waSceneManager.h"
 
 namespace wa
 {
@@ -25,7 +28,7 @@ namespace wa
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"C:\\wa\\waEngine\\Resources\\simple.png");
 
-			AddGameObject(bg);
+			AddGameObject(bg, eLayerType::BackGround);
 		}
 
 	}
@@ -36,9 +39,27 @@ namespace wa
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if(Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
 	}
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+
+		wchar_t str[50] = L"Play Scene";
+		int len = wcsnlen_s(str, 50);
+		TextOut(hdc, 0, 0, str, len);
+	}
+	void PlayScene::OnEnter()
+	{
+	}
+
+	void PlayScene::OnExit()
+	{
+		Transform* tr = bg->AddComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 	}
 }

@@ -21,6 +21,9 @@
     <ClInclude Include="waPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="waTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="waEndScene.cpp">
@@ -31,6 +34,9 @@
     </ClCompile>
     <ClCompile Include="waPlayer.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="waTitleScene.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
