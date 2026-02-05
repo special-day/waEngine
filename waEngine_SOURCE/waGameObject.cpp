@@ -1,10 +1,14 @@
 #include "waGameObject.h"
+#include "waInput.h"
+#include "waTime.h" 
+#include "waTransform.h"
 
 namespace wa
 {
 
     GameObject::GameObject()
     {
+		initializeTransform();
     }
 
     GameObject::~GameObject()
@@ -46,5 +50,10 @@ namespace wa
         {
             comp->Render(hdc);
 		}
+    }
+
+    void GameObject::initializeTransform()
+    {
+        AddComponent<Transform>();
     }
 }

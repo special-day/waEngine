@@ -24,6 +24,7 @@
     <ClInclude Include="waTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="waLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="waEndScene.cpp">

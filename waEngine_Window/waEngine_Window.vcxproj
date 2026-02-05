@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="waLoadResources.h" />
     <ClInclude Include="waEndScene.h" />
     <ClInclude Include="waLoadScenes.h" />
     <ClInclude Include="waPlayer.h" />

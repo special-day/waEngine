@@ -23,9 +23,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waScene.h" />
@@ -41,8 +44,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waScene.cpp" />

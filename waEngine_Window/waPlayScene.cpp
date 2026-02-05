@@ -6,6 +6,9 @@
 #include "waInput.h"
 #include "waTitleScene.h"
 #include "waSceneManager.h"
+#include "waObject.h"
+#include "waTexture.h"
+#include "waResources.h"
 
 namespace wa
 {
@@ -17,18 +20,20 @@ namespace wa
 	}
 	void PlayScene::Initialize()
 	{
+		// 게임 오브젝트 만들기 전에 리소스들 전부 Load해 두면 좋다.
+
 		{
-			Player* bg = new Player();
-			Transform* tr = bg->AddComponent<Transform>();
-			tr->SetPos(Vector2(0, 0));
-
-			tr->SetName(L"TR");
-
+			bg = object::Instantiate<Player>
+				(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			sr->ImageLoad(L"C:\\wa\\waEngine\\Resources\\simple.png");
 
-			AddGameObject(bg, eLayerType::BackGround);
+			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
+			sr->SetTexure(bg);
+
+			/*graphics::Texture* tex = new graphics::Texture();
+			tex->Load(L"C:\\wa\\waEngine\\Resources\\simple.png");*/
+
+			// sr->ImageLoad(L"C:\\wa\\waEngine\\Resources\\simple.png");
 		}
 
 	}
@@ -59,7 +64,7 @@ namespace wa
 
 	void PlayScene::OnExit()
 	{
-		Transform* tr = bg->AddComponent<Transform>();
-		tr->SetPos(Vector2(0, 0));
+		//Transform* tr = bg->AddComponent<Transform>();
+		//tr->SetPosition(Vector2(0, 0));
 	}
 }

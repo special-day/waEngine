@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "Editor_Window.h"
 #include "..\\waEngine_SOURCE\\waApplication.h"
+#include "..\\waEngine_Window\\\waLoadResources.h"
 #include "..\\waEngine_Window\\waLoadScenes.h"
 
 #define MAX_LOADSTRING 100
@@ -158,6 +159,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    // load Scenes
+   wa::LoadResources();
    wa::LoadScenes();
 
    return TRUE;

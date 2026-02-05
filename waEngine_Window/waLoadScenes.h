@@ -7,6 +7,8 @@
 
 namespace wa
 {
+
+
 	void LoadScenes()
 	{
 		SceneManager::CreateScene<TitleScene>(L"TitleScene");

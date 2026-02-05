@@ -5,8 +5,8 @@ namespace wa
 	Scene::Scene()
 		: mLayers{}
 	{
-		mLayers.resize((UINT)eLayerType::Max);
-		for(size_t i = 0; i < (UINT)eLayerType::Max; ++i)
+		mLayers.resize((UINT)enums::eLayerType::Max);
+		for(size_t i = 0; i < (UINT)enums::eLayerType::Max; ++i)
 		{
 			mLayers[i] = new Layer();
 		}
@@ -68,9 +68,14 @@ namespace wa
 	{
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject, const eLayerType type)
+	void Scene::AddGameObject(GameObject* gameObject, const enums::eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObject);
+	}
+
+	void Scene::createLayers()
+	{
+
 	}
 
 }

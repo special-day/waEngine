@@ -1,6 +1,7 @@
 #pragma once
 #include "waEntity.h"
 #include "waComponent.h"
+#include "waTexture.h"
 
 namespace wa
 {
@@ -14,11 +15,12 @@ namespace wa
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void ImageLoad(const std::wstring& path);
+		void SetTexure(graphics::Texture* texture) { mTexture = texture; }
+		void SetSize(math::Vector2 size) { mSize = size; }
 
 	private:
-		Gdiplus::Image* mImage;
-		UINT mWidth;
-		UINT mHeight;
+		graphics::Texture* mTexture;
+		math::Vector2 mSize;
+
 	};
 }

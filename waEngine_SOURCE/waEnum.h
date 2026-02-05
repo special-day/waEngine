@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace wa
+namespace wa::enums
 {
 	enum class eLayerType
 	{
@@ -10,5 +10,13 @@ namespace wa
 		Player,
 		Monster,
 		Max = 16,
+	};
+
+	enum class eResourceType
+	{
+		Texture,
+		AudioClip,
+		Prefab,
+		End,
 	};
 }
