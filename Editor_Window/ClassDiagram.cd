@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="wa::Animation" Collapsed="true">
+    <Position X="14" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="wa::Animation::Sprite" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\wa\waEngine\waEngine_SOURCE\waAnimation.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gQQAgAAAAAAABAhAgAAABAAAgAAAkAAAgBAAAAAAAAE=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waAnimation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Animator" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAAAAIBCAAABigAAAABAAAAQABAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waAnimator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Application" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAQAAAAQAJAABQFAQAAgIQBACAACAAAAABEAAEAAAAI=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waApplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Camera" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAQBAQAAAIAAAQAAACAAAABAAABAAACA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waCamera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::GameObject" Collapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAAAIAQAAAoAAJAAAAAAAAAAAABAAAAIAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waGameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Component" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAIAIAAAQAAAAAAIBAAAAAAAAEAABBCAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::GameObject2" Collapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBQAAAAAACAAAAAAgAAAIAAAAAAAAgAAABAAAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waGameObject2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Input" Collapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAAAgAAQACCEAAAAwAKAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waInput.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Layer" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAQAAIAAAQAAAAAAIAAAAAAAAAAEABAAAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waLayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Resource" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAIAAAAAAAAAAIABAAAAACIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waResource.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Resources" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waResources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::SceneManager" Collapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQAAAAAQAAAABAKAAAAAAAAAgAABAAAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waSceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Script" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAAAAIAAAAAAAAAAAABAAAAAhAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waScript.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::SpriteRenderer" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQQAAAAAAAAAQBAAAAIIAAAAAAAAAAAABAAAAAAYAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waSpriteRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Time" Collapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAEQABAAAAAAAAAAAAAAAACBAAAAEAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waTime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Entity" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAQAAABAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waEntity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Scene" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAEAAAQAAgAAAIAAAQAAQAAAABJAAAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::Transform" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABCCAAQAAAAAAIAQAAAAACggAIBAAAgAAAoA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wa::graphics::Texture" Collapsed="true">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="wa::graphics::Texture::eTextureType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\wa\waEngine\waEngine_SOURCE\waTexture.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAgAAQAAAAhAAAAAAAABBQABAEAAAAAAIAAEQAAAI=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="wa::math::Vector2" Collapsed="true">
+    <Position X="21" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAQAAAAAAAABgAAAAAIA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="wa::eKeyState" Collapsed="true">
+    <Position X="24.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAI=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waInput.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="wa::eKeyCode" Collapsed="true">
+    <Position X="22.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAtv//YQM=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waInput.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="wa::enums::eComponentType" Collapsed="true">
+    <Position X="21" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQgIAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="wa::enums::eLayerType" Collapsed="true">
+    <Position X="21" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAgAAAAAAAAAAAAAgAAAQEAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="wa::enums::eResourceType" Collapsed="true">
+    <Position X="22.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAggAAAAAAAAAAAAAAAIIAAAAAAAA=</HashCode>
+      <FileName>C:\wa\waEngine\waEngine_SOURCE\waEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

@@ -16,7 +16,7 @@ namespace wa::graphics
 		Texture();
 		~Texture();
 
-		virtual HRESULT Load(const std::wstring& path) override;
+		HRESULT Load(const std::wstring& path) override;
 		UINT GetWidth() { return mWidth; }
 		UINT GetHeight() { return mHeight; }
 		HDC GetHdc() { return mHdc; }

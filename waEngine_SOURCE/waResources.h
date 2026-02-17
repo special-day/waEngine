@@ -20,7 +20,6 @@ namespace wa
 		static T* Load(const std::wstring& key, const std::wstring& path)
 		{
 			T* resource = Resources::Find<T>(key);
-
 			if (resource != nullptr)
 				return resource;
 

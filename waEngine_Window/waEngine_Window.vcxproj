@@ -23,12 +23,14 @@
     <ClInclude Include="waEndScene.h" />
     <ClInclude Include="waLoadScenes.h" />
     <ClInclude Include="waPlayer.h" />
+    <ClInclude Include="waPlayerScript.h" />
     <ClInclude Include="waPlayScene.h" />
     <ClInclude Include="waTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="waEndScene.cpp" />
     <ClCompile Include="waPlayer.cpp" />
+    <ClCompile Include="waPlayerScript.cpp" />
     <ClCompile Include="waPlayScene.cpp" />
     <ClCompile Include="waTitleScene.cpp" />
   </ItemGroup>
@@ -127,6 +129,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -144,6 +147,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>

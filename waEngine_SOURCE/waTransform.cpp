@@ -5,7 +5,9 @@
 namespace wa
 {
 	Transform::Transform()
-		: mPosition(0.0f, 0.0f)
+		: Component(enums::eComponentType::Transform)
+		, mScale(Vector2::One)
+		, mRotation(0.0f)
 	{
 	}
 	Transform::~Transform()
@@ -16,26 +18,26 @@ namespace wa
 	}
 	void Transform::Update()
 	{
-		const float speed = 100.0f;
-        if (Input::GetKey(eKeyCode::A))
-        {
-            mPosition.x -= speed * Time::DT();
-        }
+		//const float speed = 100.0f;
+  //      if (Input::GetKey(eKeyCode::A))
+  //      {
+  //          mPosition.x -= speed * Time::DT();
+  //      }
 
-        if (Input::GetKey(eKeyCode::D))
-        {
-			mPosition.x += speed * Time::DT();
-        }
+  //      if (Input::GetKey(eKeyCode::D))
+  //      {
+		//	mPosition.x += speed * Time::DT();
+  //      }
 
-        if (Input::GetKey(eKeyCode::W))
-        {
-			mPosition.y -= speed * Time::DT();
-        }
+  //      if (Input::GetKey(eKeyCode::W))
+  //      {
+		//	mPosition.y -= speed * Time::DT();
+  //      }
 
-        if (Input::GetKey(eKeyCode::S))
-        {
-			mPosition.y += speed * Time::DT();
-        }
+  //      if (Input::GetKey(eKeyCode::S))
+  //      {
+		//	mPosition.y += speed * Time::DT();
+  //      }
 	}
 	void Transform::LateUpdate()
 	{

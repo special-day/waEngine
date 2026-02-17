@@ -7,6 +7,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{3689ffe5-55a4-4c28-ad8c-82337e4afb6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{b1874bbc-4a25-4775-8992-a9c203ae582c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="waLoadScenes.h">
@@ -25,6 +28,9 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="waLoadResources.h" />
+    <ClInclude Include="waPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="waEndScene.cpp">
@@ -38,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="waTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="waPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

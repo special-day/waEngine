@@ -2,8 +2,8 @@
 
 namespace wa
 	{
-	Component::Component()
-		: mOwner(nullptr)
+	Component::Component(enums::eComponentType type)
+		: mType(type)
 	{
 	}
 	Component::~Component()

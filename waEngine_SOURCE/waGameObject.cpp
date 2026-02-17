@@ -8,6 +8,7 @@ namespace wa
 
     GameObject::GameObject()
     {
+        mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
     }
 
@@ -24,6 +25,9 @@ namespace wa
     {
         for (Component* comp : mComponents)
         {
+            if (comp == nullptr)
+                continue;
+
 			comp->Initialize();
         }
 	}
@@ -32,6 +36,9 @@ namespace wa
     {
         for (Component* comp : mComponents)
         {
+            if (comp == nullptr)
+                continue;
+
             comp->Update();
         }
     }
@@ -40,6 +47,9 @@ namespace wa
     {
         for (Component* comp : mComponents)
         {
+            if (comp == nullptr)
+                continue;
+
             comp->LateUpdate();
         }
     }
@@ -48,6 +58,9 @@ namespace wa
     {
         for(Component* comp : mComponents)
         {
+            if (comp == nullptr)
+                continue;
+
             comp->Render(hdc);
 		}
     }

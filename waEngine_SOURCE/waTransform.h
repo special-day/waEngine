@@ -12,16 +12,22 @@ namespace wa
 		Transform();
 		~Transform();
 
-		virtual void Initialize() override;
-		virtual void Update() override;
-		virtual void LateUpdate() override;
-		virtual void Render(HDC hdc) override;
+		void Initialize() override;
+		void Update() override;
+		void LateUpdate() override;
+		void Render(HDC hdc) override;
 
 		void SetPosition(Vector2 pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
 		Vector2 GetPosition() { return mPosition; }
+		void SetScale(Vector2 scale) { mScale = scale; }
+		Vector2 GetScale() { return mScale; }
+		void SetRotation(float rotate) { mRotation = rotate; }
+		float GetRotation() { return mRotation; }
 
 	private:
 		Vector2 mPosition;
+		Vector2 mScale;
+		float mRotation;
 
 	};
 }
