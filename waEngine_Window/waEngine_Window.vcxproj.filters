@@ -31,6 +31,15 @@
     <ClInclude Include="waPlayerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="waMonster.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="waMonScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="waBackground.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="waEndScene.cpp">
@@ -47,6 +56,15 @@
     </ClCompile>
     <ClCompile Include="waPlayerScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="waMonster.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="waMonScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="waBackground.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

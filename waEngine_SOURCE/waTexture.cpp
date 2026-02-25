@@ -34,7 +34,7 @@ namespace wa::graphics
 			mWidth = info.bmWidth;
 			mHeight = info.bmHeight;
 
-			HDC mainDC = application.getHdc();
+			HDC mainDC = application.GetHdc();
 			mHdc = CreateCompatibleDC(mainDC);
 
 			HBITMAP oldBitmap = (HBITMAP)SelectObject(mHdc, mBitmap);

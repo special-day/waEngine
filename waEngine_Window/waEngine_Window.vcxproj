@@ -19,16 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="waBackground.h" />
     <ClInclude Include="waLoadResources.h" />
     <ClInclude Include="waEndScene.h" />
     <ClInclude Include="waLoadScenes.h" />
+    <ClInclude Include="waMonScript.h" />
+    <ClInclude Include="waMonster.h" />
     <ClInclude Include="waPlayer.h" />
     <ClInclude Include="waPlayerScript.h" />
     <ClInclude Include="waPlayScene.h" />
     <ClInclude Include="waTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="waBackground.cpp" />
     <ClCompile Include="waEndScene.cpp" />
+    <ClCompile Include="waMonScript.cpp" />
+    <ClCompile Include="waMonster.cpp" />
     <ClCompile Include="waPlayer.cpp" />
     <ClCompile Include="waPlayerScript.cpp" />
     <ClCompile Include="waPlayScene.cpp" />

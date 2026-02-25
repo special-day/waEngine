@@ -17,6 +17,7 @@ namespace wa::enums
 	{
 		None,
 		BackGround,
+		UI,
 		Player,
 		Monster,
 		Max = 16,

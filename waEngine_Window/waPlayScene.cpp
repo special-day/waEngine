@@ -13,6 +13,8 @@
 #include "waCamera.h"
 #include "waRenderer.h"
 #include "waAnimator.h"
+#include "waMonster.h"
+#include "waMonScript.h"
 
 namespace wa
 {
@@ -25,42 +27,62 @@ namespace wa
 	void PlayScene::Initialize()
 	{
 		// main camera
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(512.0f, 384.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
-		// camera->AddComponent<PlayerScript>();
 
-		mPlayer = object::Instantiate<Player>
-			(enums::eLayerType::Player/*, Vector2(100.0f, 100.0f)*/);
-		//SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		//sr->SetSize(Vector2(3.0f, 3.0f));
-		mPlayer->AddComponent<PlayerScript>();
+		// Player
+		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
+		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
-		graphics::Texture* LinkTexture = Resources::Find<graphics::Texture>(L"Link");
-		//sr->SetTexure(pacmanTexture);
+		cameraComp->SetTarget(mPlayer);
 
-		Animator* animator = mPlayer->AddComponent<Animator>();
-		animator->CreateAnimation(L"Idle", LinkTexture
-			, Vector2(0.0f, 0.0f), Vector2(102.4f, 111.0f), Vector2::Zero, 3, 0.1f);
-		animator->CreateAnimation(L"DownWalk", LinkTexture
-			, Vector2(0.0f, 444.0f), Vector2(102.4f, 111.0f), Vector2::Zero, 10, 0.1f);
-		animator->CreateAnimation(L"LeftWalk", LinkTexture
-			, Vector2(0.0f, 555.0f), Vector2(102.4f, 111.0f), Vector2::Zero, 10, 0.1f);
-		animator->CreateAnimation(L"UpWalk", LinkTexture
-			, Vector2(0.0f, 666.0f), Vector2(102.4f, 111.0f), Vector2::Zero, 10, 0.1f);
-		animator->CreateAnimation(L"RightWalk", LinkTexture
-			, Vector2(0.0f, 777.0f), Vector2(102.4f, 111.0f), Vector2::Zero, 10, 0.1f);
-		animator->PlayAnimation(L"Idle", true);
+		graphics::Texture* KirbyRight = Resources::Find<graphics::Texture>(L"Kirby_Right");
+		graphics::Texture* KirbyLeft = Resources::Find<graphics::Texture>(L"Kirby_Left");
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
+		playerAnimator->CreateAnimation(L"Stand", KirbyRight
+			, Vector2(0.0f, 0.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 2, 0.5f);
 
-		GameObject* bg = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround/*, Vector2(100.0f, 100.0f)*/);
-		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-		// bgSr->SetSize(Vector2(3.0f, 3.0f));
-		 
-		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Map");
-		bgSr->SetTexure(bgTexture);
+		playerAnimator->CreateAnimation(L"Crouch", KirbyRight
+			, Vector2(456.0f, 0.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 2, 0.5f);
+
+		playerAnimator->CreateAnimation(L"RightWalk", KirbyRight
+			, Vector2(1368.0f, 0.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 10, 0.2f);
+		playerAnimator->CreateAnimation(L"LeftWalk", KirbyLeft
+			, Vector2(1344.0f, 0.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 10, 0.2f);
+
+		playerAnimator->CreateAnimation(L"RightRun", KirbyRight
+			, Vector2(1368.0f, 228.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 8, 0.2f);
+		playerAnimator->CreateAnimation(L"LeftRun", KirbyLeft
+			, Vector2(1344.0f, 228.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 8, 0.2f);
+
+		playerAnimator->PlayAnimation(L"Stand", true);
+
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(512.0f, 384.0f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
+
+		// Monster
+		//Monster* mon = object::Instantiate<Monster>(enums::eLayerType::Monster);
+		//mon->AddComponent<MonScript>();
+
+		//graphics::Texture* MonTexture = Resources::Find<graphics::Texture>(L"Enemies");
+
+		//Animator* monAnimator = mon->AddComponent<Animator>();
+		//monAnimator->CreateAnimation(L"Idle", MonTexture
+		//	, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//monAnimator->CreateAnimation(L"DownWalk", MonTexture
+		//	, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//monAnimator->CreateAnimation(L"LeftWalk", MonTexture
+		//	, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//monAnimator->CreateAnimation(L"UpWalk", MonTexture
+		//	, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//monAnimator->CreateAnimation(L"RightWalk", MonTexture
+		//	, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//monAnimator->PlayAnimation(L"Idle", true);
+
+		//mon->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
+		//mon->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
 		// 게임 오브젝트 생성 후에 레이어와 게임오브젝트들의 init 함수를 호출
 		Scene::Initialize();

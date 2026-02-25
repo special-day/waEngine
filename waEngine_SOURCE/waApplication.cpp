@@ -90,7 +90,6 @@ namespace wa
         mHeight = rect.bottom - rect.top;
 
         SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
-        ShowWindow(mHwnd, true);
     }
     void Application::createBuffer(UINT width, UINT height)
     {

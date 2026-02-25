@@ -6,6 +6,8 @@ namespace wa
 	class Time
 	{
 	public:
+		Time() = delete;
+
 		static void Initialize();
 		static void Update();
 		static void Render(HDC hdc);

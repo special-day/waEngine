@@ -8,7 +8,7 @@
 namespace wa
 {
 	PlayerScript::PlayerScript()
-		: mState(PlayerScript::eState::Idle)
+		: mState(PlayerScript::eState::Stand)
 		, mAnimator(nullptr)
 	{
 	}
@@ -27,46 +27,29 @@ namespace wa
 
 		switch (mState)
 		{
-		case wa::PlayerScript::eState::Idle:
-			idle();
+		case wa::PlayerScript::eState::Stand:
+			stand();
 			break;
 		case wa::PlayerScript::eState::Walk:
-			move();
+			walk();
+			break;
+		case wa::PlayerScript::eState::Run:
+			run();
+			break;
+		case wa::PlayerScript::eState::Crouch:
+		{
+			if (Input::GetKeyUp(eKeyCode::Down))
+			{
+				mState = PlayerScript::eState::Stand;
+				mAnimator->PlayAnimation(L"Stand");
+			}
+		}
+			break;
+		case wa::PlayerScript::eState::Slide:
 			break;
 		default:
 			break;
 		}
-		
-		//if (Input::GetKey(eKeyCode::Right))
-		//{
-		//	Transform* tr = GetOwner()->GetComponent<Transform>();
-		//	Vector2 pos = tr->GetPosition();
-		//	pos.x += 100.0f * Time::DT();
-		//	tr->SetPosition(pos);
-		//}
-
-		//if (Input::GetKey(eKeyCode::Left))
-		//{
-		//	Transform* tr = GetOwner()->GetComponent<Transform>();
-		//	Vector2 pos = tr->GetPosition();
-		//	pos.x -= 100.0f * Time::DT();
-		//	tr->SetPosition(pos);
-		//}
-		//if (Input::GetKey(eKeyCode::Up))
-		//{
-		//	Transform* tr = GetOwner()->GetComponent<Transform>();
-		//	Vector2 pos = tr->GetPosition();
-		//	pos.y -= 100.0f * Time::DT();
-		//	tr->SetPosition(pos);
-		//}
-
-		//if (Input::GetKey(eKeyCode::Down))
-		//{
-		//	Transform* tr = GetOwner()->GetComponent<Transform>();
-		//	Vector2 pos = tr->GetPosition();
-		//	pos.y += 100.0f * Time::DT();
-		//	tr->SetPosition(pos);
-		//}
 
 	}
 	void PlayerScript::LateUpdate()
@@ -75,59 +58,96 @@ namespace wa
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
-	void PlayerScript::idle()
+	void PlayerScript::AttackEffect()
 	{
-		if (Input::GetKey(eKeyCode::D))
+	}
+	void PlayerScript::stand()
+	{
+		if (Input::GetKey(eKeyCode::Right))
 		{
 			mState = PlayerScript::eState::Walk;
 			mAnimator->PlayAnimation(L"RightWalk");
 		}
-		if (Input::GetKey(eKeyCode::A))
+		if (Input::GetKey(eKeyCode::Left))
 		{
 			mState = PlayerScript::eState::Walk;
 			mAnimator->PlayAnimation(L"LeftWalk");
 		}
-		if (Input::GetKey(eKeyCode::W))
+		if (Input::GetKey(eKeyCode::Down))
 		{
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"UpWalk");
-		}
-		if (Input::GetKey(eKeyCode::S))
-		{
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"DownWalk");
+			mState = PlayerScript::eState::Crouch;
+			mAnimator->PlayAnimation(L"Crouch");
 		}
 	}
-	void PlayerScript::move()
+	void PlayerScript::walk()
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
-		if (Input::GetKey(eKeyCode::D))
+		if (Input::GetKey(eKeyCode::Right))
 		{
 			pos.x += 100.0f * Time::DT();
+
+			if (Input::GetKeyDown(eKeyCode::C))
+			{
+				mState = PlayerScript::eState::Run;
+				mAnimator->PlayAnimation(L"RightRun");
+			}
 		}
-		if (Input::GetKey(eKeyCode::A))
+		if (Input::GetKey(eKeyCode::Left))
 		{
 			pos.x -= 100.0f * Time::DT();
-		}
-		if (Input::GetKey(eKeyCode::W))
-		{
-			pos.y -= 100.0f * Time::DT();
-		}
-		if (Input::GetKey(eKeyCode::S))
-		{
-			pos.y += 100.0f * Time::DT();
+
+			if (Input::GetKeyDown(eKeyCode::C))
+			{
+				mState = PlayerScript::eState::Run;
+				mAnimator->PlayAnimation(L"LeftRun");
+			}
 		}
 
 		tr->SetPosition(pos);
 
-		if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A)
-			|| Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
+		if (Input::GetKeyUp(eKeyCode::Right) || Input::GetKeyUp(eKeyCode::Left))
 		{
-			mState = PlayerScript::eState::Idle;
-			mAnimator->PlayAnimation(L"Idle");
+			mState = PlayerScript::eState::Stand;
+			mAnimator->PlayAnimation(L"Stand");
 		}
 
 	}
+
+	void PlayerScript::run()
+	{
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+
+		if (Input::GetKey(eKeyCode::Right))
+		{
+			pos.x += 200.0f * Time::DT();
+
+			if (Input::GetKeyUp(eKeyCode::C))
+			{
+				mState = PlayerScript::eState::Walk;
+				mAnimator->PlayAnimation(L"RightWalk");
+			}
+		}
+		if (Input::GetKey(eKeyCode::Left))
+		{
+			pos.x -= 200.0f * Time::DT();
+
+			if (Input::GetKeyUp(eKeyCode::C))
+			{
+				mState = PlayerScript::eState::Walk;
+				mAnimator->PlayAnimation(L"LeftWalk");
+			}
+		}
+
+		tr->SetPosition(pos);
+
+		if (Input::GetKeyUp(eKeyCode::Right) || Input::GetKeyUp(eKeyCode::Left))
+		{
+			mState = PlayerScript::eState::Stand;
+			mAnimator->PlayAnimation(L"Stand");
+		}
+	}
+
 }

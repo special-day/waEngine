@@ -8,8 +8,11 @@ namespace wa
 	public:
 		enum class eState
 		{
-			Idle,
+			Stand,
 			Walk,
+			Run,
+			Crouch,
+			Slide,
 		};
 
 
@@ -21,12 +24,20 @@ namespace wa
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void AttackEffect();
+
 	private:
-		void idle();
-		void move();
+		void stand();
+		void walk();
+		void run();
+
 
 	private:
 		eState mState;
 		class Animator* mAnimator;
+
+		//void (*StartEvent)();
+		//void (*CompleteEvent)();
+		//void (*EndEvent)();
 	};
 }

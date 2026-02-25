@@ -16,13 +16,16 @@ namespace wa
 		Q, W, E, R, T, Y, U, I, O, P,
 		A, S, D, F, H, J, K, L,
 		Z, X, C, V, B, N, M,
-		Left, Right, Down, Up, 
+		Left, Right, Down, Up,
+		LBUTTON, MBUTTON, RBUTTON, 
 		End,
 	};
 
 	class Input
 	{
 	public:
+		Input() = delete;
+
 		struct Key
 		{
 			eKeyCode keyCode;
@@ -36,6 +39,7 @@ namespace wa
 		static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Pressed; }
+		static math::Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void createKeys();
@@ -44,10 +48,12 @@ namespace wa
 		static bool isKeyDown(eKeyCode code);
 		static void updateKeyDown(Input::Key& key);
 		static void updateKeyUp(Input::Key& key);
-
+		static void getMousePositionByWindow();
+		static void clearKeys();
 
 	private:
 		// eKeyState mState[];
 		static std::vector<Key> Keys;
+		static math::Vector2 mMousePosition;
 	};
 }

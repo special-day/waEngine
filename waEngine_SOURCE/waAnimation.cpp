@@ -66,15 +66,9 @@ namespace wa
 
 		if (type == graphics::Texture::eTextureType::Bmp)
 		{
-			BLENDFUNCTION func = {};
-			func.BlendOp = AC_SRC_OVER;
-			func.BlendFlags = 0;
-			func.AlphaFormat = AC_SRC_ALPHA;
-			func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
-
 			HDC imgHdc = mTexture->GetHdc();
 
-			AlphaBlend(hdc
+			TransparentBlt(hdc
 				, pos.x - (sprite.size.x / 2.0f)
 				, pos.y - (sprite.size.y / 2.0f)
 				, sprite.size.x * scale.x
@@ -84,7 +78,8 @@ namespace wa
 				, sprite.leftTop.y
 				, sprite.size.x
 				, sprite.size.y
-				, func);
+				, RGB(255, 0, 255));
+
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
 		{
@@ -92,7 +87,8 @@ namespace wa
 			Gdiplus::ImageAttributes imgAtt = {};
 			
 			// 투명화 시킬 픽셀의 색 범위
-			imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+			Gdiplus::Color ColorKey(255, 0, 255);
+			imgAtt.SetColorKey(ColorKey, ColorKey);
 
 			Gdiplus::Graphics graphics(hdc);
 
@@ -113,11 +109,9 @@ namespace wa
 				, sprite.size.x
 				, sprite.size.y
 				, Gdiplus::UnitPixel
-				, nullptr
+				, &imgAtt
 			);
 		}
-
-
 
 	}
 
@@ -125,11 +119,23 @@ namespace wa
 		, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLength, float duration)
 	{
 		mTexture = spriteSheet;
+
+		UINT textureWidth = mTexture->GetWidth();
+		UINT columnInSheet = static_cast<UINT>(textureWidth / size.x);
+
 		for (size_t i = 0; i < spriteLength; i++)
 		{
 			Sprite sprite = {};
-			sprite.leftTop.x = leftTop.x + size.x * i;
-			sprite.leftTop.y = leftTop.y;
+
+			UINT startCol = static_cast<UINT>(leftTop.x / size.x);
+			UINT startRow = static_cast<UINT>(leftTop.y / size.y);
+
+			UINT curCol = (startCol + i) % columnInSheet;
+			UINT curRow = startRow + ((startCol + i) / columnInSheet);
+
+			sprite.leftTop.x = curCol * size.x;
+			sprite.leftTop.y = curRow * size.y;
+
 			sprite.size = size;
 			sprite.offset = offset;
 			sprite.duration = duration;

@@ -17,7 +17,8 @@ namespace wa
 		void LateUpdate();
 		void Render();
 
-		HDC getHdc() { return mHdc; }
+		HWND GetHwnd() { return mHwnd; }
+		HDC GetHdc() { return mHdc; }
 		UINT GetWidth() { return mWidth; }
 		UINT GetHeight() { return mHeight; }
 
