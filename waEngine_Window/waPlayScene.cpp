@@ -48,14 +48,14 @@ namespace wa
 			, Vector2(456.0f, 0.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 2, 0.5f);
 
 		playerAnimator->CreateAnimation(L"RightWalk", KirbyRight
-			, Vector2(1368.0f, 0.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 10, 0.2f);
+			, Vector2(1368.0f, 0.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 10, 0.1f);
 		playerAnimator->CreateAnimation(L"LeftWalk", KirbyLeft
-			, Vector2(1344.0f, 0.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 10, 0.2f);
+			, Vector2(1344.0f, 0.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 10, 0.1f);
 
 		playerAnimator->CreateAnimation(L"RightRun", KirbyRight
-			, Vector2(1368.0f, 228.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 8, 0.2f);
+			, Vector2(1368.0f, 228.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 8, 0.1f);
 		playerAnimator->CreateAnimation(L"LeftRun", KirbyLeft
-			, Vector2(1344.0f, 228.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 8, 0.2f);
+			, Vector2(1344.0f, 228.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 8, 0.1f);
 
 		playerAnimator->PlayAnimation(L"Stand", true);
 
@@ -63,26 +63,22 @@ namespace wa
 		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 
 		// Monster
-		//Monster* mon = object::Instantiate<Monster>(enums::eLayerType::Monster);
-		//mon->AddComponent<MonScript>();
+		Monster* WaddleDee = object::Instantiate<Monster>(enums::eLayerType::Monster);
+		WaddleDee->AddComponent<MonScript>();
 
-		//graphics::Texture* MonTexture = Resources::Find<graphics::Texture>(L"Enemies");
+		graphics::Texture* WaddleDee_Left = Resources::Find<graphics::Texture>(L"BigWaddleDee_Left");
+		graphics::Texture* WaddleDee_Right = Resources::Find<graphics::Texture>(L"BigWaddleDee_Right");
 
-		//Animator* monAnimator = mon->AddComponent<Animator>();
-		//monAnimator->CreateAnimation(L"Idle", MonTexture
-		//	, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//monAnimator->CreateAnimation(L"DownWalk", MonTexture
-		//	, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//monAnimator->CreateAnimation(L"LeftWalk", MonTexture
-		//	, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//monAnimator->CreateAnimation(L"UpWalk", MonTexture
-		//	, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//monAnimator->CreateAnimation(L"RightWalk", MonTexture
-		//	, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//monAnimator->PlayAnimation(L"Idle", true);
+		Animator* monAnimator = WaddleDee->AddComponent<Animator>();
+		monAnimator->CreateAnimation(L"Idle", WaddleDee_Left
+			, Vector2(0.0f, 448.0f), Vector2(448.0f, 448.0f), Vector2::Zero, 1, 0.1f);
+		monAnimator->CreateAnimation(L"LeftWalk", WaddleDee_Left
+			, Vector2(0.0f, 0.0f), Vector2(448.0f, 448.0f), Vector2::Zero, 5, 0.1f);
+		monAnimator->CreateAnimation(L"RightWalk", WaddleDee_Right
+			, Vector2(0.0f, 0.0f), Vector2(448.0f, 448.0f), Vector2::Zero, 5, 0.1f);
+		monAnimator->PlayAnimation(L"Idle", true);
 
-		//mon->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
-		//mon->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		WaddleDee->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 
 		// 게임 오브젝트 생성 후에 레이어와 게임오브젝트들의 init 함수를 호출
 		Scene::Initialize();

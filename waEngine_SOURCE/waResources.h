@@ -35,6 +35,7 @@ namespace wa
 			return resource;
 		}
 
+		static void Release();
 
 	private:
 		static std::map<std::wstring, Resource*> mResources;

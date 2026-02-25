@@ -17,8 +17,6 @@ namespace wa
 		{
 			Left,
 			Right,
-			Down,
-			Up,
 			End,
 		};
 
@@ -42,5 +40,6 @@ namespace wa
 		class Animator* mAnimator;
 		eDirection mDirection;
 		float mTime;
+		float mDeathTime;
 	};
 }

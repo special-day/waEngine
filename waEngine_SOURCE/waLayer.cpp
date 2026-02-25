@@ -9,6 +9,11 @@ namespace wa
 	}
 	Layer::~Layer()
 	{
+		for (GameObject* gameObj : mGameObjects)
+		{
+			delete gameObj;
+			gameObj = nullptr;
+		}
 	}
 
 	void Layer::Initialize()
@@ -50,6 +55,26 @@ namespace wa
 				continue;
 
 			gameObj->Render(hdc);
+		}
+	}
+
+	void Layer::Destroy()
+	{
+		for (auto iter = mGameObjects.begin(); iter != mGameObjects.end(); )
+		{
+			GameObject::eState active = (*iter)->GetActive();
+			if (active == GameObject::eState::Dead)
+			{
+				GameObject* deathObj = (*iter);
+				iter = mGameObjects.erase(iter);
+
+				delete deathObj;
+				deathObj = nullptr;
+
+				continue;
+			}
+
+			++iter;
 		}
 	}
 

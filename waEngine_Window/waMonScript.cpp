@@ -5,6 +5,7 @@
 #include "waTime.h"
 #include "waGameObject.h"
 #include "waAnimator.h"
+#include "waObject.h"
 
 namespace wa
 {
@@ -12,6 +13,7 @@ namespace wa
 		: mState(MonScript::eState::Idle)
 		, mAnimator(nullptr)
 		, mTime(0.0f)
+		, mDeathTime(0.0f)
 	{
 	}
 	MonScript::~MonScript()
@@ -22,6 +24,12 @@ namespace wa
 	}
 	void MonScript::Update()
 	{
+		mDeathTime += Time::DT();
+		if (mDeathTime > 6.0f)
+		{
+			object::Destroy(GetOwner());
+		}
+
 		if (mAnimator == nullptr)
 		{
 			mAnimator = GetOwner()->GetComponent<Animator>();
@@ -52,7 +60,7 @@ namespace wa
 		if (mTime > 3.0f)
 		{
 			mState = MonScript::eState::Walk;
-			int direction = (rand() % 4);
+			int direction = (rand() % 2);
 			mDirection = (eDirection)direction;
 			playWalkAnimationByDirection(mDirection);
 			mTime = 0.0f;
@@ -72,32 +80,6 @@ namespace wa
 
 		translate(tr);
 
-		//if (Input::GetKey(eKeyCode::D))
-		//{
-		//	pos.x += 100.0f * Time::DT();
-		//}
-		//if (Input::GetKey(eKeyCode::A))
-		//{
-		//	pos.x -= 100.0f * Time::DT();
-		//}
-		//if (Input::GetKey(eKeyCode::W))
-		//{
-		//	pos.y -= 100.0f * Time::DT();
-		//}
-		//if (Input::GetKey(eKeyCode::S))
-		//{
-		//	pos.y += 100.0f * Time::DT();
-		//}
-
-		//tr->SetPosition(pos);
-
-		//if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A)
-		//	|| Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
-		//{
-		//	mState = MonScript::eState::Idle;
-		//	mAnimator->PlayAnimation(L"Idle");
-		//}
-
 	}
 
 	void MonScript::playWalkAnimationByDirection(eDirection dir)
@@ -109,12 +91,6 @@ namespace wa
 			break;
 		case wa::MonScript::eDirection::Right:
 			mAnimator->PlayAnimation(L"RightWalk", true);
-			break;
-		case wa::MonScript::eDirection::Down:
-			mAnimator->PlayAnimation(L"DownWalk", true);
-			break;
-		case wa::MonScript::eDirection::Up:
-			mAnimator->PlayAnimation(L"UpWalk", true);
 			break;
 		case wa::MonScript::eDirection::End:
 			break;
@@ -135,12 +111,6 @@ namespace wa
 			break;
 		case wa::MonScript::eDirection::Right:
 			pos.x += 100.0f * Time::DT();
-			break;
-		case wa::MonScript::eDirection::Down:
-			pos.y += 100.0f * Time::DT();
-			break;
-		case wa::MonScript::eDirection::Up:
-			pos.y -= 100.0f * Time::DT();
 			break;
 		case wa::MonScript::eDirection::End:
 			break;

@@ -2,6 +2,7 @@
 #include "waInput.h"
 #include "waTime.h"
 #include "waSceneManager.h"
+#include "waResources.h"
 
 namespace wa
 {
@@ -34,6 +35,7 @@ namespace wa
         Update();
         LateUpdate();
         Render();
+        Destroy();
     }
 
     void Application::Update()
@@ -67,6 +69,17 @@ namespace wa
         // GDI 모듈에 의해서 관리된다.
         // 어떤 폰트를 사용할 것인가? 어떤 선의 굵기를 정해줄 것인지? 어떤 색상으로 그려줄 것인지?
         // 화면 출력에 필요한 모든 경우는 WINAPI에서는 DC를 통해서 작업을 진행할 수 있다.
+    }
+
+    void Application::Destroy()
+    {
+        SceneManager::Destroy();
+    }
+
+    void Application::Release()
+    {
+        SceneManager::Release();
+        Resources::Release();
     }
 
     void Application::clearRenderTarget()

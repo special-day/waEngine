@@ -14,6 +14,11 @@ namespace wa
 	}
 	Scene::~Scene()
 	{
+		for (Layer* layer : mLayers)
+		{
+			delete layer;
+			layer = nullptr;
+		}
 	}
 
 	void Scene::Initialize()
@@ -46,6 +51,17 @@ namespace wa
 				continue;
 
 			layer->LateUpdate();
+		}
+	}
+
+	void Scene::Destroy()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Destroy();
 		}
 	}
 
