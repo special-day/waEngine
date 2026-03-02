@@ -35,11 +35,15 @@ namespace wa
 		void playWalkAnimationByDirection(eDirection dir);
 		void translate(Transform* tr);
 
+		void SetPlayer(class Player* player) { mPlayer = player; }
+
 	private:
 		eState mState;
 		class Animator* mAnimator;
 		eDirection mDirection;
 		float mTime;
 		float mDeathTime;
+
+		class Player* mPlayer;
 	};
 }

@@ -4,6 +4,11 @@
 #include "waTime.h"
 #include "waGameObject.h"
 #include "waAnimator.h"
+#include "waMonster.h"
+#include "waMonScript.h"
+#include "waObject.h"
+#include "waCollider.h"
+#include "waResources.h"
 
 namespace wa
 {
@@ -41,11 +46,12 @@ namespace wa
 			if (Input::GetKeyUp(eKeyCode::Down))
 			{
 				mState = PlayerScript::eState::Stand;
-				mAnimator->PlayAnimation(L"Stand");
+				mAnimator->PlayAnimation(L"RightStand");
 			}
 		}
 			break;
 		case wa::PlayerScript::eState::Slide:
+			slide();
 			break;
 		default:
 			break;
@@ -60,9 +66,44 @@ namespace wa
 	}
 	void PlayerScript::AttackEffect()
 	{
+		Monster* WaddleDee = object::Instantiate<Monster>(enums::eLayerType::Monster);
+		WaddleDee->AddComponent<MonScript>();
+
+		graphics::Texture* WaddleDee_Left = Resources::Find<graphics::Texture>(L"BigWaddleDee_Left");
+		graphics::Texture* WaddleDee_Right = Resources::Find<graphics::Texture>(L"BigWaddleDee_Right");
+
+		Animator* monAnimator = WaddleDee->AddComponent<Animator>();
+		monAnimator->CreateAnimation(L"Idle", WaddleDee_Left
+			, Vector2(0.0f, 448.0f), Vector2(448.0f, 448.0f), Vector2::Zero, 1, 0.1f);
+		monAnimator->CreateAnimation(L"LeftWalk", WaddleDee_Left
+			, Vector2(0.0f, 0.0f), Vector2(448.0f, 448.0f), Vector2::Zero, 5, 0.1f);
+		monAnimator->CreateAnimation(L"RightWalk", WaddleDee_Right
+			, Vector2(0.0f, 0.0f), Vector2(448.0f, 448.0f), Vector2::Zero, 5, 0.1f);
+		monAnimator->PlayAnimation(L"Idle", true);
+
+		WaddleDee->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 	}
+
+	void PlayerScript::OnCollisionEnter(Collider* other)
+	{
+	}
+
+	void PlayerScript::OnCollisionStay(Collider* other)
+	{
+	}
+
+	void PlayerScript::OnCollisionExit(Collider* other)
+	{
+	}
+
 	void PlayerScript::stand()
 	{
+		if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		{
+			mState = PlayerScript::eState::Slide;
+			mAnimator->PlayAnimation(L"Slide", false);
+		}
+
 		if (Input::GetKey(eKeyCode::Right))
 		{
 			mState = PlayerScript::eState::Walk;
@@ -107,12 +148,17 @@ namespace wa
 
 		tr->SetPosition(pos);
 
-		if (Input::GetKeyUp(eKeyCode::Right) || Input::GetKeyUp(eKeyCode::Left))
+		if (Input::GetKeyUp(eKeyCode::Right))
 		{
 			mState = PlayerScript::eState::Stand;
-			mAnimator->PlayAnimation(L"Stand");
+			mAnimator->PlayAnimation(L"RightStand");
 		}
 
+		if (Input::GetKeyUp(eKeyCode::Left))
+		{
+			mState = PlayerScript::eState::Stand;
+			mAnimator->PlayAnimation(L"LeftStand");
+		}
 	}
 
 	void PlayerScript::run()
@@ -143,11 +189,30 @@ namespace wa
 
 		tr->SetPosition(pos);
 
-		if (Input::GetKeyUp(eKeyCode::Right) || Input::GetKeyUp(eKeyCode::Left))
+		if (Input::GetKeyUp(eKeyCode::Right))
 		{
 			mState = PlayerScript::eState::Stand;
-			mAnimator->PlayAnimation(L"Stand");
+			mAnimator->PlayAnimation(L"RightStand");
 		}
+
+		if (Input::GetKeyUp(eKeyCode::Left))
+		{
+			mState = PlayerScript::eState::Stand;
+			mAnimator->PlayAnimation(L"LeftStand");
+		}
+	}
+
+	void PlayerScript::slide()
+	{
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Stand;
+			mAnimator->PlayAnimation(L"RightStand");
+		}
+	}
+
+	void PlayerScript::attack()
+	{
 	}
 
 }

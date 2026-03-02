@@ -7,9 +7,9 @@
 #include <algorithm>
 #include <string>
 #include <map>
+#include <bitset>
 #include <functional>
-
-#include "waMath.h"
+#include <filesystem>
 
 #include <mmsystem.h>
 #include <dinput.h>
@@ -21,3 +21,4 @@
 #pragma comment(lib, "gdiplus.lib")
 
 #include "waEnum.h"
+#include "waMath.h"

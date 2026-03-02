@@ -3,8 +3,9 @@
 
 namespace wa
 {
+	using namespace enums;
+	
 	class GameObject;
-
 	class Component : public Entity
 	{
 	public:

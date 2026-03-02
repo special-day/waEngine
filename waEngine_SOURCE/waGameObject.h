@@ -48,12 +48,15 @@ namespace wa
 			return component;
 		}
 
-		eState GetActive() { return mState; }
+		
+		eState GetState() { return mState; }
 		void SetActive(bool power)
 		{
 			if (power == true) mState = eState::Active;
 			if (power == false) mState = eState::Paused;
 		}
+		bool IsActive() { return mState == eState::Active; }
+
 		void Death() { mState = eState::Dead; }
 
 	private:

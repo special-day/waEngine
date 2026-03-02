@@ -34,6 +34,10 @@ namespace wa
 			if (gameObj == nullptr)
 				continue;
 
+			if (gameObj->GetState() == GameObject::eState::Dead
+				|| gameObj->GetState() == GameObject::eState::Paused)
+				continue;
+
 			gameObj->Update();
 		}
 	}
@@ -42,6 +46,10 @@ namespace wa
 		for (GameObject* gameObj : mGameObjects)
 		{
 			if (gameObj == nullptr)
+				continue;
+
+			if (gameObj->GetState() == GameObject::eState::Dead
+				|| gameObj->GetState() == GameObject::eState::Paused)
 				continue;
 
 			gameObj->LateUpdate();
@@ -54,6 +62,10 @@ namespace wa
 			if(gameObj == nullptr)
 				continue;
 
+			if (gameObj->GetState() == GameObject::eState::Dead
+				|| gameObj->GetState() == GameObject::eState::Paused)
+				continue;
+
 			gameObj->Render(hdc);
 		}
 	}
@@ -62,7 +74,7 @@ namespace wa
 	{
 		for (auto iter = mGameObjects.begin(); iter != mGameObjects.end(); )
 		{
-			GameObject::eState active = (*iter)->GetActive();
+			GameObject::eState active = (*iter)->GetState();
 			if (active == GameObject::eState::Dead)
 			{
 				GameObject* deathObj = (*iter);

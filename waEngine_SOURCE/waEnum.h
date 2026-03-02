@@ -1,14 +1,14 @@
 #pragma once
 
-
 namespace wa::enums
 {
 	enum class eComponentType
 	{
 		Transform,
-		SpriteRenderer,
-		Animator,
+		Collider,
 		Script,
+		Animator,
+		SpriteRenderer,
 		Camera,
 		End,
 	};
@@ -20,6 +20,7 @@ namespace wa::enums
 		UI,
 		Player,
 		Monster,
+		Particle,
 		Max = 16,
 	};
 
@@ -29,6 +30,13 @@ namespace wa::enums
 		AudioClip,
 		Animation, 
 		Prefab,
+		End,
+	};
+
+	enum class eColliderType
+	{
+		Circle2D,
+		Rect2D,
 		End,
 	};
 }

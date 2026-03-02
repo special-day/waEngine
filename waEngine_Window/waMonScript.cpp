@@ -24,11 +24,11 @@ namespace wa
 	}
 	void MonScript::Update()
 	{
-		mDeathTime += Time::DT();
-		if (mDeathTime > 6.0f)
-		{
-			object::Destroy(GetOwner());
-		}
+		//mDeathTime += Time::DT();
+		//if (mDeathTime > 6.0f)
+		//{
+		//	object::Destroy(GetOwner());
+		//}
 
 		if (mAnimator == nullptr)
 		{
@@ -57,14 +57,30 @@ namespace wa
 	void MonScript::idle()
 	{
 		mTime += Time::DT();
-		if (mTime > 3.0f)
-		{
-			mState = MonScript::eState::Walk;
-			int direction = (rand() % 2);
-			mDirection = (eDirection)direction;
-			playWalkAnimationByDirection(mDirection);
-			mTime = 0.0f;
-		}
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+
+		//Vector2 mousePos = Vector2::Zero;
+		//if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		//{
+		//	mousePos = Input::GetMousePosition();
+		//}
+
+		//Vector2 dest = pos - mousePos;
+
+		//pos += dest.normalize() * (100.0f * Time::DT());
+		
+		tr->SetPosition(pos);
+
+		//if (mTime > 3.0f)
+		//{
+		//	mState = MonScript::eState::Walk;
+		//	int direction = (rand() % 2);
+		//	mDirection = (eDirection)direction;
+		//	playWalkAnimationByDirection(mDirection);
+		//	mTime = 0.0f;
+		//}
 	}
 	void MonScript::move()
 	{

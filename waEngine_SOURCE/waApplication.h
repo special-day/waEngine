@@ -1,6 +1,5 @@
 #pragma once
 #include "waGameObject.h"
-#include "waGameObject2.h"
 
 namespace wa
 {
