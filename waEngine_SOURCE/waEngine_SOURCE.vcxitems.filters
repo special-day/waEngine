@@ -69,6 +69,9 @@
       <Filter>High Level Interface</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)waCollisionManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waDontDestroyOnLoad.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -148,6 +151,9 @@
       <Filter>High Level Interface</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)waCollisionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waDontDestroyOnLoad.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

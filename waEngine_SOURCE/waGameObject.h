@@ -2,11 +2,18 @@
 #include "CommonInclude.h"
 #include "waComponent.h"
 
+namespace wa::object
+{
+	void Destory(GameObject* gameObject);
+}
+
 namespace wa 
 {
 	class GameObject
 	{
 	public:
+		friend void object::Destory(GameObject* obj);
+
 		enum class eState
 		{
 			Active,
@@ -56,14 +63,17 @@ namespace wa
 			if (power == false) mState = eState::Paused;
 		}
 		bool IsActive() { return mState == eState::Active; }
-
-		void Death() { mState = eState::Dead; }
+		bool IsDead() { return mState == eState::Dead; }
+		void SetLayerType(eLayerType layerType) { mLayerType = layerType; }
+		eLayerType GetLayerType() { return mLayerType; }
 
 	private:
 		void initializeTransform();
+		void death() { mState = eState::Dead; }
 
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
+		eLayerType mLayerType;
 	};
 }

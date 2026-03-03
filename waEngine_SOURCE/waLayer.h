@@ -17,8 +17,12 @@ namespace wa
 		virtual void Render(HDC hdc);
 		virtual void Destroy();
 
-		void AddGameObject(GameObject* gameObject);
+		void AddGameObject(GameObject* gameObj);
+		void EraseGameObject(GameObject* eraseGameObj);
 		const std::vector<GameObject*> GetGameObjects() { return mGameObjects; }
+
+	private:
+
 
 	private:
 		// eLayerType mType;

@@ -21,7 +21,6 @@ namespace wa
 		GameObject* GetOwner() { return mOwner; }
 		enums::eComponentType GetType() { return mType; }
 
-
 	private:
 		GameObject* mOwner;
 		enums::eComponentType mType;

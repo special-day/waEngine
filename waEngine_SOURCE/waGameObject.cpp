@@ -3,11 +3,21 @@
 #include "waTime.h" 
 #include "waTransform.h"
 
+namespace wa::object
+{
+    void Destory(GameObject* gameObject)
+    {
+        if (gameObject != nullptr)
+            gameObject->death();
+    }
+}
+
 namespace wa
 {
 
     GameObject::GameObject()
         : mState(eState::Active)
+        , mLayerType(eLayerType::None)
     {
         mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();

@@ -90,11 +90,22 @@ namespace wa
 		}
 	}
 
-	void Layer::AddGameObject(GameObject* gameObject)
+	void Layer::AddGameObject(GameObject* gameObj)
 	{
-		if(gameObject == nullptr)
+		if(gameObj == nullptr)
 			return;
 
-		mGameObjects.push_back(gameObject);
+		mGameObjects.push_back(gameObj);
+	}
+
+	void Layer::EraseGameObject(GameObject* eraseGameObj)
+	{
+		// std::erase() iter 넣어줘서 해당 이터레이터와 같은 객체 삭제
+		// std::erase_if() 조건이 참인 객체만
+		std::erase_if(mGameObjects,
+			[=](GameObject* gameObj)
+			{
+				return gameObj == eraseGameObj;
+			});
 	}
 }

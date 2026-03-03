@@ -38,6 +38,9 @@ namespace wa
 
 		// Player
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
+		object::DontDestroyOnLoad(mPlayer);
+
+
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
 		collider->SetOffset(Vector2(-50, -75));

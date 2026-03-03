@@ -84,9 +84,15 @@ namespace wa
 	{
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject, const enums::eLayerType type)
+	void Scene::AddGameObject(GameObject* gameObj, const enums::eLayerType type)
 	{
-		mLayers[(UINT)type]->AddGameObject(gameObject);
+		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+
+	void Scene::EraseGameObject(GameObject* gameObj)
+	{
+		eLayerType layerType = gameObj->GetLayerType();
+		mLayers[(UINT)layerType]->EraseGameObject(gameObj);
 	}
 
 	void Scene::createLayers()
