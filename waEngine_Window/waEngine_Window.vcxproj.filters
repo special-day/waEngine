@@ -40,6 +40,9 @@
     <ClInclude Include="waBackground.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="waLevel1.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="waEndScene.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="waBackground.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="waLevel1.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

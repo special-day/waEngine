@@ -34,6 +34,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waRigidBody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waSpriteRenderer.h" />
@@ -62,6 +63,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waRigidBody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waSpriteRenderer.cpp" />

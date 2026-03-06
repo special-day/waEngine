@@ -21,6 +21,8 @@ namespace wa
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		graphics::Texture* bgTex = Resources::Find<graphics::Texture>(L"Title_Back");
 		
+
+
 		Background* bgUI = object::Instantiate<Background>(enums::eLayerType::UI);
 		SpriteRenderer* sr1 = bgUI->AddComponent<SpriteRenderer>();
 		graphics::Texture* bgUITex = Resources::Find<graphics::Texture>(L"Title_Stage");

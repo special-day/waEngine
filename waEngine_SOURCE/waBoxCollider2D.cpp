@@ -31,6 +31,7 @@ namespace wa
 			pos = renderer::mainCamera->CalculatePosition(pos);
 
 		Vector2 offset = GetOffset();
+		Vector2 size = GetSize();
 
 		HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
@@ -41,8 +42,8 @@ namespace wa
 		Rectangle(hdc
 			, pos.x + offset.x
 			, pos.y + offset.y
-			, pos.x + offset.x + 100
-			, pos.y + offset.y + 100);
+			, pos.x + offset.x + 60 * size.x
+			, pos.y + offset.y + 60 * size.y);
 
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);

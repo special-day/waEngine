@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="waBackground.h" />
+    <ClInclude Include="waLevel1.h" />
     <ClInclude Include="waLoadResources.h" />
     <ClInclude Include="waEndScene.h" />
     <ClInclude Include="waLoadScenes.h" />
@@ -33,6 +34,7 @@
   <ItemGroup>
     <ClCompile Include="waBackground.cpp" />
     <ClCompile Include="waEndScene.cpp" />
+    <ClCompile Include="waLevel1.cpp" />
     <ClCompile Include="waMonScript.cpp" />
     <ClCompile Include="waMonster.cpp" />
     <ClCompile Include="waPlayer.cpp" />

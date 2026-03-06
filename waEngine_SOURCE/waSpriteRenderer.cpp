@@ -31,7 +31,7 @@ namespace wa
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
-		Vector2 cameraPos = renderer::mainCamera->CalculatePosition(pos);
+		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		float rot = tr->GetRotation();
 		Vector2 scale = tr->GetScale();

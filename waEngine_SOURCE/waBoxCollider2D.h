@@ -15,6 +15,6 @@ namespace wa
 		void Render(HDC hdc) override;
 
 	private:
-		Vector2 mSize;
+
 	};
 }

@@ -8,12 +8,11 @@ namespace wa
 	public:
 		enum class eState
 		{
-			Stand,
-			Walk,
-			Run,
-			Crouch,
-			Slide,
+			Stand, Walk, Run, Jump, Fall,
+			Crouch, Slide, Inhale, Full, Attack, Hit
 		};
+
+		enum class eDirection {Left, Right};
 
 
 		PlayerScript();
@@ -34,12 +33,23 @@ namespace wa
 		void stand();
 		void walk();
 		void run();
+		void jump();
+		void fall();
+		void crouch();
 		void slide();
+		void inhale();
+		void full();
 		void attack();
+		void hit();
 
+		void updateAnimation();
+		void updateCollider();
 
 	private:
 		eState mState;
+		eState mPrevState;
+		eDirection mDir;
+		eDirection mPrevDir;
 		class Animator* mAnimator;
 
 		//void (*StartEvent)();

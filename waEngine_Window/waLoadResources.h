@@ -14,6 +14,10 @@ namespace wa
 		Resources::Load<graphics::Texture>(L"Title_Stage", L"C:\\wa\\waEngine\\Resources\\Actor\\Stage\\Title_Stage.bmp");
 		Resources::Load<graphics::Texture>(L"Title_Back", L"C:\\wa\\waEngine\\Resources\\Level\\Title_Back.bmp");
 
+		// Level_1
+		Resources::Load<graphics::Texture>(L"Level1", L"C:\\wa\\waEngine\\Resources\\Actor\\Stage\\Level1.bmp");
+
+
 		// Kirby
 		Resources::Load<graphics::Texture>(L"Kirby_Left", L"C:\\wa\\waEngine\\Resources\\Actor\\Kirby\\Default_Left.bmp");
 		Resources::Load<graphics::Texture>(L"Kirby_Right", L"C:\\wa\\waEngine\\Resources\\Actor\\Kirby\\Default_Right.bmp");

@@ -1,6 +1,12 @@
 #pragma once
 #include "..\\waEngine_SOURCE\\waScene.h"
-
+#include "waInput.h"
+#include "waPlayScene.h"
+#include "waSceneManager.h"
+#include "waBackground.h"
+#include "waObject.h"
+#include "waSpriteRenderer.h"
+#include "waResources.h"
 
 namespace wa
 {

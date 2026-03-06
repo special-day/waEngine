@@ -19,9 +19,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waTime.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)waComponent.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)waMath.cpp">
       <Filter>Common</Filter>
     </ClCompile>
@@ -52,10 +49,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)waAnimation.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)waAnimator.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)waCollider.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
@@ -68,9 +61,23 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waApplication.cpp">
       <Filter>High Level Interface</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)waCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waDontDestroyOnLoad.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waAnimation.cpp">
+      <Filter>Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waAnimator.cpp">
+      <Filter>Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waCollisionManager.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waComponent.cpp">
+      <Filter>Component\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waRigidBody.cpp">
+      <Filter>Component\Rigidbody</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,9 +101,6 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)waTime.h">
       <Filter>Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)waComponent.h">
-      <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)waMath.h">
       <Filter>Common</Filter>
@@ -134,10 +138,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)waAnimation.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)waAnimator.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)waCollider.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
@@ -150,9 +150,23 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waApplication.h">
       <Filter>High Level Interface</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)waCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waDontDestroyOnLoad.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waAnimation.h">
+      <Filter>Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waAnimator.h">
+      <Filter>Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waCollisionManager.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waComponent.h">
+      <Filter>Component\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waRigidBody.h">
+      <Filter>Component\Rigidbody</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +214,18 @@
     </Filter>
     <Filter Include="High Level Interface">
       <UniqueIdentifier>{ef17f946-1643-467a-91ac-b58db78e9009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animator">
+      <UniqueIdentifier>{95e2be69-66d9-4fd2-ab46-045e8c6391cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{90cf716f-2938-4f17-b011-625b65eaa03b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Component">
+      <UniqueIdentifier>{1436b719-ed45-4a5b-9d78-0cdb08ccfbe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Rigidbody">
+      <UniqueIdentifier>{ddd41060-9321-48b1-aaf4-612ec54f4140}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

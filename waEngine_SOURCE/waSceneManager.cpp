@@ -23,6 +23,16 @@ namespace wa
 		return mActiveScene;
 	}
 
+	std::vector<GameObject*> SceneManager::GetGameObjects(eLayerType layer)
+	{
+		std::vector<GameObject*> gameObjects = mActiveScene->GetLayer(layer)->GetGameObjects();
+		std::vector<GameObject*> dontdestroyOnLoad = mDontDestroyOnLoad->GetLayer(layer)->GetGameObjects();
+
+		gameObjects.insert(gameObjects.end(), dontdestroyOnLoad.begin(), dontdestroyOnLoad.end());
+
+		return gameObjects;
+	}
+
 	void SceneManager::Initialize()
 	{
 		mDontDestroyOnLoad = SceneManager::CreateScene<DontDestroyOnLoad>(L"DontDestroyOnLoad");

@@ -6,6 +6,7 @@ namespace wa::enums
 	{
 		Transform,
 		Collider,
+		Rigidbody,
 		Script,
 		Animator,
 		SpriteRenderer,
@@ -18,6 +19,7 @@ namespace wa::enums
 		None,
 		BackGround,
 		UI,
+		Ground,
 		Player,
 		Monster,
 		Particle,
