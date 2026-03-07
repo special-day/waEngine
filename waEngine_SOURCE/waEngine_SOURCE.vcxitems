@@ -19,6 +19,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waAudioClip.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waAudioListener.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waAudioSource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waBoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waCircleCollider2D.h" />
@@ -26,6 +29,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waDontDestroyOnLoad.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)waFmod.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)waLayer.h" />
@@ -49,6 +53,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waAudioClip.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waAudioListener.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waAudioSource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waBoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waCircleCollider2D.cpp" />
@@ -56,6 +63,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waDontDestroyOnLoad.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)waFmod.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)waLayer.cpp" />

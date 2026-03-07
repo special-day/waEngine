@@ -79,6 +79,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)waRigidBody.cpp">
       <Filter>Component\Rigidbody</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waFmod.cpp">
+      <Filter>Fmod</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waAudioListener.cpp">
+      <Filter>Component\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waAudioSource.cpp">
+      <Filter>Component\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)waAudioClip.cpp">
+      <Filter>Resource\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -168,6 +180,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)waRigidBody.h">
       <Filter>Component\Rigidbody</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waFmod.h">
+      <Filter>Fmod</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waAudioListener.h">
+      <Filter>Component\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waAudioSource.h">
+      <Filter>Component\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)waAudioClip.h">
+      <Filter>Resource\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -226,6 +250,15 @@
     </Filter>
     <Filter Include="Component\Rigidbody">
       <UniqueIdentifier>{ddd41060-9321-48b1-aaf4-612ec54f4140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fmod">
+      <UniqueIdentifier>{9e34bc8c-f4d2-429b-a3da-664e86a8eaad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Audio">
+      <UniqueIdentifier>{798db005-77dc-4743-8c6e-1b8e7e86825e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Audio">
+      <UniqueIdentifier>{c9e9448e-46d0-4669-b20e-c44e4ea6128e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

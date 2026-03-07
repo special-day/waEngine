@@ -11,6 +11,8 @@ namespace wa::enums
 		Animator,
 		SpriteRenderer,
 		Camera,
+		AudioListener,
+		AudioSource,
 		End,
 	};
 

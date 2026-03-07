@@ -4,6 +4,7 @@
 #include "waSceneManager.h"
 #include "waResources.h"
 #include "waCollisionManager.h"
+#include "waFmod.h"
 
 namespace wa
 {
@@ -28,6 +29,8 @@ namespace wa
         createBuffer(mWidth, mHeight);
         initializeEtc();
 
+
+        Fmod::Initialize();
         CollisionManager::Initialize();
 		SceneManager::Initialize();
     }

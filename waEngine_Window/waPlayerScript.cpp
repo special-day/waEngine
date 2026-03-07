@@ -153,9 +153,9 @@ namespace wa
 			mState = eState::Crouch;
 		}
 
-		if (Input::GetKeyDown(eKeyCode::LBUTTON))
+		if (Input::GetKeyDown(eKeyCode::V))
 		{
-			mState = eState::Slide;
+			mState = eState::Inhale;
 		}
 	}
 	void PlayerScript::walk()
@@ -310,6 +310,36 @@ namespace wa
 
 	void PlayerScript::inhale()
 	{
+		if (Input::GetKeyUp(eKeyCode::V))
+		{
+			mState = eState::Stand;
+			return;
+		}
+
+		// 2. 흡입 범위 설정 (커비의 위치와 방향 기준)
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+
+		// 흡입 중심점 (커비의 앞쪽)
+		float inhaleDist = 100.0f;
+		Vector2 inhaleCenter = pos;
+		inhaleCenter.x += (mDir == eDirection::Right) ? inhaleDist : -inhaleDist;
+		\
+			const std::vector<GameObject*>& monsters = SceneManager::GetActiveScene()->GetLayer(eLayerType::Monster)->GetGameObjects();
+
+		for (GameObject* monster : monsters)
+		{
+			Transform* monTr = monster->GetComponent<Transform>();
+			Vector2 monPos = monTr->GetPosition();
+
+			float dist = (inhaleCenter - monPos).length();
+
+			// 4. 흡입 범위(예: 150 픽셀) 안에 있다면 끌어당기기
+			if (dist < 150.0f)
+			{
+				pullMonster(monster, pos);
+			}
+		}
 	}
 
 	void PlayerScript::full()
@@ -375,6 +405,33 @@ namespace wa
 			col->SetSize(Vector2(1.0f, 1.0f));
 			col->SetOffset(Vector2(-30, -60));
 		}
+	}
+
+	void PlayerScript::pullMonster(GameObject* monster, Vector2 playerPos)
+	{
+		Transform* monTr = monster->GetComponent<Transform>();
+		Vector2 monPos = monTr->GetPosition();
+
+		Vector2 dir = playerPos - monPos;
+		float dist = dir.length();
+
+		if (dist < 20.0f)
+		{
+			eatMonster(monster);
+			return;
+		}
+
+		dir = dir.normalize();
+		monPos += dir * 300.0f * Time::DT();
+		monTr->SetPosition(monPos);
+
+	}
+
+	void PlayerScript::eatMonster(GameObject* monster)
+	{
+		monster->SetActive(false);
+
+		mState = eState::Full;
 	}
 
 }

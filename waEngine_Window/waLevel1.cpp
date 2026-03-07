@@ -19,6 +19,9 @@
 #include "waCircleCollider2D.h"
 #include "waCollisionManager.h"
 #include "waRigidBody.h"
+#include "waAudioClip.h"
+#include "waAudioListener.h"
+#include "waAudioSource.h"
 
 namespace wa
 {
@@ -35,6 +38,8 @@ namespace wa
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
+		AudioSource* as = camera->AddComponent<AudioSource>();
+
 		// Background
 		Background* bg = object::Instantiate<Background>(enums::eLayerType::BackGround, Vector2::Zero);
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
@@ -45,6 +50,8 @@ namespace wa
 		// Player
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
 		// object::DontDestroyOnLoad(mPlayer);
+
+		mPlayer->AddComponent<AudioListener>();
 
 		RigidBody* rb = mPlayer->AddComponent<RigidBody>();
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
@@ -110,6 +117,12 @@ namespace wa
 		monAnimator->PlayAnimation(L"Idle", true);
 
 		WaddleDee->GetComponent<Transform>()->SetPosition(Vector2(412.0f, 384.0f));
+
+
+		AudioClip* ac = Resources::Load<AudioClip>(L"BGM", L"..\\Resources\\Sound\\Play1.mp3");
+		as->SetClip(ac);
+		as->Play();
+		
 
 		// 게임 오브젝트 생성 후에 레이어와 게임오브젝트들의 init 함수를 호출
 		Scene::Initialize();
