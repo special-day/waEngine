@@ -157,17 +157,25 @@ namespace wa
 		{
 			mState = eState::Inhale;
 		}
+
+		if (Input::GetKeyDown(eKeyCode::X))
+		{
+			initJump();
+			mState = eState::Jump;
+		}
 	}
 	void PlayerScript::walk()
 	{
-		Transform* tr = GetOwner()->GetComponent<Transform>();
-		Vector2 pos = tr->GetPosition();
-		float moveSpeed = 150.0f;
+		RigidBody* rb = GetOwner()->GetComponent<RigidBody>();
+		if (!rb) return;
+
+		float walkSpeed = 150.0f;
+		Vector2 velocity = rb->GetVelocity();
 
 		if (Input::GetKey(eKeyCode::Right))
 		{
 			mDir = eDirection::Right;
-			pos.x += moveSpeed * Time::DT();
+			velocity.x = walkSpeed;
 
 			if (Input::GetKeyDown(eKeyCode::C))
 			{
@@ -178,7 +186,7 @@ namespace wa
 		else if (Input::GetKey(eKeyCode::Left))
 		{
 			mDir = eDirection::Left;
-			pos.x -= moveSpeed * Time::DT();
+			velocity.x = -walkSpeed;
 
 			if (Input::GetKeyDown(eKeyCode::C))
 			{
@@ -188,27 +196,36 @@ namespace wa
 		}
 		else
 		{
+			velocity.x = 0.0f;
 			mState = eState::Stand;
 		}
+
+		rb->SetVelocity(velocity);
 
 		if (Input::GetKeyDown(eKeyCode::Down))
 		{
 			mState = eState::Crouch;
 		}
 
-		tr->SetPosition(pos);
+		if (Input::GetKeyDown(eKeyCode::X))
+		{
+			initJump();
+			mState = eState::Jump;
+			return;
+		}
 	}
-
 	void PlayerScript::run()
 	{
-		Transform* tr = GetOwner()->GetComponent<Transform>();
-		Vector2 pos = tr->GetPosition();
+		RigidBody* rb = GetOwner()->GetComponent<RigidBody>();
+		if (!rb) return;
+
 		float runSpeed = 250.0f;
+		Vector2 velocity = rb->GetVelocity();
 
 		if (Input::GetKey(eKeyCode::Right))
 		{
 			mDir = eDirection::Right;
-			pos.x += runSpeed * Time::DT();
+			velocity.x = runSpeed;
 
 			if (Input::GetKeyUp(eKeyCode::C))
 			{
@@ -219,7 +236,7 @@ namespace wa
 		else if (Input::GetKey(eKeyCode::Left))
 		{
 			mDir = eDirection::Left;
-			pos.x -= runSpeed * Time::DT();
+			velocity.x = -runSpeed;
 
 			if (Input::GetKeyUp(eKeyCode::C))
 			{
@@ -229,24 +246,51 @@ namespace wa
 		}
 		else
 		{
+			velocity.x = 0.0f;
 			mState = eState::Stand;
 		}
 
-		tr->SetPosition(pos);
+		rb->SetVelocity(velocity);
+
+		if (Input::GetKeyDown(eKeyCode::X)) // 점프 키를 누르는 순간
+		{
+			initJump();
+			mState = eState::Jump;
+			return;
+		}
 	}
 
 	void PlayerScript::jump()
 	{
 		RigidBody* rb = GetOwner()->GetComponent<RigidBody>();
+		Vector2 velocity = rb->GetVelocity();
+		float airSpeed = 150.0f;
 
+		if (Input::GetKey(eKeyCode::Right))
+		{
+			mDir = eDirection::Right;
+			velocity.x = airSpeed;
+		}
+		else if (Input::GetKey(eKeyCode::Left))
+		{
+			mDir = eDirection::Left;
+			velocity.x = -airSpeed;
+		}
+		else
+		{
+			velocity.x = 0.0f;
+		}
+
+		// 가변 점프: 키를 떼면 상승 속도를 줄여서 살짝 점프하게 함
 		if (Input::GetKeyUp(eKeyCode::X))
 		{
-			Vector2 velocity = rb->GetVelocity();
-			if (velocity.y < 0.0f) {
-				velocity.y *= 0.5f;
-				rb->SetVelocity(velocity);
+			if (velocity.y < 0.0f)
+			{
+				velocity.y *= 0.4f;
 			}
 		}
+
+		rb->SetVelocity(velocity);
 
 		if (rb->GetVelocity().y > 0.0f)
 		{
@@ -257,15 +301,31 @@ namespace wa
 	void PlayerScript::fall()
 	{
 		RigidBody* rb = GetOwner()->GetComponent<RigidBody>();
+		Vector2 velocity = rb->GetVelocity();
+		float airSpeed = 150.0f;
+
+		// 공중 좌우 이동
+		if (Input::GetKey(eKeyCode::Right))
+		{
+			mDir = eDirection::Right;
+			velocity.x = airSpeed;
+		}
+		else if (Input::GetKey(eKeyCode::Left))
+		{
+			mDir = eDirection::Left;
+			velocity.x = -airSpeed;
+		}
+		else
+		{
+			velocity.x = 0.0f;
+		}
+
+		rb->SetVelocity(velocity);
 
 		if (rb->GetGround())
 		{
 			mState = eState::Stand;
 		}
-
-		float airControl = 100.0f;
-		if (Input::GetKey(eKeyCode::Right)) rb->AddForce(Vector2(airControl, 0.0f));
-		if (Input::GetKey(eKeyCode::Left))  rb->AddForce(Vector2(-airControl, 0.0f));
 	}
 
 	void PlayerScript::crouch()
@@ -324,8 +384,8 @@ namespace wa
 		float inhaleDist = 100.0f;
 		Vector2 inhaleCenter = pos;
 		inhaleCenter.x += (mDir == eDirection::Right) ? inhaleDist : -inhaleDist;
-		\
-			const std::vector<GameObject*>& monsters = SceneManager::GetActiveScene()->GetLayer(eLayerType::Monster)->GetGameObjects();
+		
+		const std::vector<GameObject*>& monsters = SceneManager::GetActiveScene()->GetLayer(eLayerType::Monster)->GetGameObjects();
 
 		for (GameObject* monster : monsters)
 		{
@@ -344,10 +404,48 @@ namespace wa
 
 	void PlayerScript::full()
 	{
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+		float moveSpeed = 100.0f; // 평소(150.0f)보다 느리게 설정
+
+		// 좌우 이동은 가능하지만, 점프나 대시는 제한할 수 있습니다.
+		if (Input::GetKey(eKeyCode::Right))
+		{
+			mDir = eDirection::Right;
+			pos.x += moveSpeed * Time::DT();
+		}
+		else if (Input::GetKey(eKeyCode::Left))
+		{
+			mDir = eDirection::Left;
+			pos.x -= moveSpeed * Time::DT();
+		}
+
+		// 공격(별 발사) 또는 삼키기
+		if (Input::GetKeyDown(eKeyCode::V)) // 다시 V를 누르면 발사!
+		{
+			mState = eState::Attack;
+		}
+
+		// 아래 키를 누르면 능력을 카피하거나 그냥 삼킴 (선택 사항)
+		if (Input::GetKeyDown(eKeyCode::Down))
+		{
+			mState = eState::Stand; // 능력이 없다면 그냥 일반 상태로
+		}
+
+		tr->SetPosition(pos);
 	}
 
 	void PlayerScript::attack()
 	{
+		// 1. 별 오브젝트 생성 (Instantiate)
+	// 이 부분은 작성하신 AttackEffect() 로직을 응용하면 됩니다.
+	// 예: Star* star = object::Instantiate<Star>(eLayerType::PlayerProjectile);
+
+	// 2. 애니메이션이 한 번 재생 완료되면 다시 Stand로
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Stand;
+		}
 	}
 
 	void PlayerScript::hit()
@@ -378,12 +476,14 @@ namespace wa
 		default: break;
 		}
 
-		// 상태가 변했을 때만 새로 재생
 		if (mPrevState != mState || mPrevDir != mDir)
 		{
-			bool loop = (mState == eState::Slide) ? false : true;
+			bool loop = true;
 
-			mAnimator->PlayAnimation(animName, loop); // Slide는 false로 설정
+			if (mState == eState::Attack || mState == eState::Hit || mState == eState::Slide)
+				loop = false;
+
+			mAnimator->PlayAnimation(animName, loop);
 
 			mPrevState = mState;
 			mPrevDir = mDir;
@@ -404,6 +504,19 @@ namespace wa
 		{
 			col->SetSize(Vector2(1.0f, 1.0f));
 			col->SetOffset(Vector2(-30, -60));
+		}
+	}
+
+	void PlayerScript::initJump()
+	{
+		RigidBody* rb = GetOwner()->GetComponent<RigidBody>();
+		if (rb)
+		{
+			Vector2 velocity = rb->GetVelocity();
+			velocity.y = -500.0f;
+			rb->SetVelocity(velocity);
+
+			rb->SetGround(false);
 		}
 	}
 

@@ -4,6 +4,7 @@ namespace wa
 {
 	Scene::Scene()
 		: mLayers{}
+		, mColMap(nullptr)
 	{
 		mLayers.resize((UINT)enums::eLayerType::Max);
 		for(size_t i = 0; i < (UINT)enums::eLayerType::Max; ++i)

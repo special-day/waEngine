@@ -54,4 +54,16 @@ namespace wa::graphics
 
 		return S_OK;
 	}
+
+	COLORREF Texture::GetPixel(int x, int y)
+	{
+		// 1. 비트맵 범위 밖 예외 처리
+		if (x < 0 || x >= mWidth || y < 0 || y >= mHeight)
+			return RGB(255, 255, 255); // 범위 밖은 공중 처리
+
+		// 2. GDI GetPixel은 느리므로, 맵 로드 시점에 
+		// 메모리 DC(mHdc)를 생성해두고 거기서 가져오는 것이 좋습니다.
+		return ::GetPixel(mHdc, x, y);
+	}
+
 }

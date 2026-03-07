@@ -2,6 +2,7 @@
 #include "waEntity.h"
 #include "waGameObject.h"
 #include "waLayer.h"
+#include "waTexture.h"
 
 namespace wa
 {
@@ -24,11 +25,15 @@ namespace wa
 		void EraseGameObject(GameObject* gameObj);
 		Layer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
 
+		void SetColMap(graphics::Texture* colMap) { mColMap = colMap; }
+		graphics::Texture* GetColMap() { return mColMap; }
+
 	private:
 		void createLayers();
 
 	private:
 		std::vector<Layer*> mLayers;
+		graphics::Texture* mColMap;
 	};
 
 }

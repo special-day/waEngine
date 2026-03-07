@@ -22,6 +22,7 @@ namespace wa::graphics
 		HDC GetHdc() { return mHdc; }
 		eTextureType GetTextureType() { return mType; }
 		Gdiplus::Image* GetImage() { return mImage; }
+		COLORREF GetPixel(int x, int y);
 
 	private:
 		eTextureType mType;

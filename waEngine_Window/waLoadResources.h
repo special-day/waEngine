@@ -16,11 +16,14 @@ namespace wa
 
 		// Level_1
 		Resources::Load<graphics::Texture>(L"Level1", L"..\\Resources\\Actor\\Stage\\Level1.bmp");
+		Resources::Load<graphics::Texture>(L"Level1_ColMap", L"..\\Resources\\Actor\\Stage\\Level1_ColMap.bmp");
 
 
 		// Kirby
 		Resources::Load<graphics::Texture>(L"Kirby_Left", L"..\\Resources\\Actor\\Kirby\\Default_Left.bmp");
 		Resources::Load<graphics::Texture>(L"Kirby_Right", L"..\\Resources\\Actor\\Kirby\\Default_Right.bmp");
+		Resources::Load<graphics::Texture>(L"Kirby_Jump_Right", L"..\\Resources\\Actor\\Kirby\\Default_Jump_Right.bmp");
+		Resources::Load<graphics::Texture>(L"Kirby_Jump_Left", L"..\\Resources\\Actor\\Kirby\\Default_Jump_Left.bmp");
 		
 		// Enemies
 		Resources::Load<graphics::Texture>(L"BigWaddleDee_Left", L"..\\Resources\\Actor\\Monster\\BigWaddleDee_Left.bmp");

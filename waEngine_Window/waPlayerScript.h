@@ -44,6 +44,7 @@ namespace wa
 
 		void updateAnimation();
 		void updateCollider();
+		void initJump();
 		void pullMonster(GameObject* monster, Vector2 playerPos);
 		void eatMonster(GameObject* monster);
 

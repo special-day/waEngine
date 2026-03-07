@@ -47,6 +47,10 @@ namespace wa
 
 		sr->SetTexure(bgTex);
 
+		// ColMap
+		graphics::Texture* colMap = Resources::Find<graphics::Texture>(L"Level1_ColMap");
+		this->SetColMap(colMap);
+
 		// Player
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
 		// object::DontDestroyOnLoad(mPlayer);
@@ -62,6 +66,8 @@ namespace wa
 
 		graphics::Texture* KirbyRight = Resources::Find<graphics::Texture>(L"Kirby_Right");
 		graphics::Texture* KirbyLeft = Resources::Find<graphics::Texture>(L"Kirby_Left");
+		graphics::Texture* KirbyJumpRight = Resources::Find<graphics::Texture>(L"Kirby_Jump_Right");
+		graphics::Texture* KirbyJumpLeft = Resources::Find<graphics::Texture>(L"Kirby_Jump_Left");
 
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
 		playerAnimator->CreateAnimation(L"RightStand", KirbyRight
@@ -85,9 +91,14 @@ namespace wa
 			, Vector2(448.0f, 0.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 2, 0.5f);
 
 		playerAnimator->CreateAnimation(L"RightSlide", KirbyRight
-			, Vector2(912.0f, 0.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 2, 0.5f);
+			, Vector2(912.0f, 0.0f), Vector2(228.0f, 228.0f), Vector2::Zero, 2, 0.1f);
 		playerAnimator->CreateAnimation(L"LeftSlide", KirbyLeft
-			, Vector2(896.0f, 0.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 2, 0.5f);
+			, Vector2(896.0f, 0.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 2, 0.1f);
+
+		playerAnimator->CreateAnimation(L"RightJump", KirbyJumpRight
+			, Vector2(0.0f, 0.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 9, 0.5f);
+		playerAnimator->CreateAnimation(L"LefttJump", KirbyJumpLeft
+			, Vector2(0.0f, 0.0f), Vector2(224.0f, 224.0f), Vector2::Zero, 9, 0.5f);
 
 
 		playerAnimator->PlayAnimation(L"RightStand", true);
